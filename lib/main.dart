@@ -9,7 +9,10 @@ class TaskyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Tasky', home: const WelcomePage());
+    return MaterialApp(
+      title: 'Tasky',
+      home: const WelcomePage(),
+    );
   }
 }
 
@@ -25,14 +28,28 @@ class WelcomePage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             // logo
-            Image.asset('assets/logo.png', width: 290, height: 137),
-            const SizedBox(height: 56),
-            //// quote
-            const Text(
-              '"იპოვე ადამიანი, ვინც შენს საქმეს გააკეთებს"',
-              style: TextStyle(color: Color(0xCCFFFFFF), fontSize: 16),
+            Image.asset(
+              'assets/logo.png',
+              width: 290,
+              height: 137,
             ),
+
             const SizedBox(height: 56),
+
+            // quote
+            const Text(
+              'იპოვე ადამიანი, ვინც შენს საქმეს გააკეთებს',
+              style: TextStyle(
+                fontFamily: 'GLVenuri',
+                color: Color(0xCCFFFFFF),
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+
+            const SizedBox(height: 56),
+
+            // Register button
             SizedBox(
               width: 342,
               height: 56,
@@ -47,7 +64,6 @@ class WelcomePage extends StatelessWidget {
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF573F95),
-
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -56,12 +72,18 @@ class WelcomePage extends StatelessWidget {
                 ),
                 child: const Text(
                   'რეგისტრაცია',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                    fontFamily: 'GLVenuri',
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),
+
             const SizedBox(height: 24),
 
+            // Login button
             SizedBox(
               width: 342,
               height: 56,
@@ -69,7 +91,9 @@ class WelcomePage extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const LoginPage()),
+                    MaterialPageRoute(
+                      builder: (context) => const LoginPage(),
+                    ),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -82,22 +106,14 @@ class WelcomePage extends StatelessWidget {
                 ),
                 child: const Text(
                   'შესვლა',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                    fontFamily: 'GLVenuri',
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),
-
-            const SizedBox(height: 10),
-
-            /* ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const LoginPage()),
-                );
-              },
-              child: const Text('Log in'),
-            ),*/
           ],
         ),
       ),
@@ -111,30 +127,50 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             const Text(
               'ელ.პოსტით შესვლა',
-              style: TextStyle(color: Color(0xFF573F95), fontSize: 30),
+              style: TextStyle(
+                fontFamily: 'GLVenuri',
+                color: Color(0xFF573F95),
+                fontSize: 30,
+                fontWeight: FontWeight.w500,
+              ),
             ),
 
             const SizedBox(height: 30),
 
+            // Email
             SizedBox(
               width: 342,
               child: TextField(
-                style: const TextStyle(color: Color(0xFF573F95)),
+                style: const TextStyle(
+                  fontFamily: 'GLVenuri',
+                  color: Color(0xFF573F95),
+                  fontWeight: FontWeight.w400,
+                ),
                 decoration: InputDecoration(
                   labelText: 'ელ.პოსტა',
-                  labelStyle: const TextStyle(color: Color(0xFF573F95)),
+                  labelStyle: const TextStyle(
+                    fontFamily: 'GLVenuri',
+                    color: Color(0xFF573F95),
+                    fontWeight: FontWeight.w400,
+                  ),
                   enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xFF573F95), width: 1),
+                    borderSide: BorderSide(
+                      color: Color(0xFF573F95),
+                      width: 1,
+                    ),
                   ),
                   focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xFF573F95)),
+                    borderSide: BorderSide(
+                      color: Color(0xFF573F95),
+                      width: 1,
+                    ),
                   ),
                 ),
               ),
@@ -142,23 +178,40 @@ class LoginPage extends StatelessWidget {
 
             const SizedBox(height: 15),
 
+            // Password
             SizedBox(
               width: 342,
               child: TextField(
                 obscureText: true,
-                style: const TextStyle(color: Color(0xFF573F95)),
+                style: const TextStyle(
+                  fontFamily: 'GLVenuri',
+                  color: Color(0xFF573F95),
+                  fontWeight: FontWeight.w400,
+                ),
                 decoration: InputDecoration(
                   labelText: 'პაროლი',
-                  labelStyle: const TextStyle(color: Color(0xFF573F95)),
+                  labelStyle: const TextStyle(
+                    fontFamily: 'GLVenuri',
+                    color: Color(0xFF573F95),
+                    fontWeight: FontWeight.w400,
+                  ),
                   enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xFF573F95), width: 1),
+                    borderSide: BorderSide(
+                      color: Color(0xFF573F95),
+                      width: 1,
+                    ),
                   ),
                   focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xFF573F95)),
+                    borderSide: BorderSide(
+                      color: Color(0xFF573F95),
+                      width: 1,
+                    ),
                   ),
                 ),
               ),
             ),
+
+            // Forgot password
             TextButton(
               onPressed: () {
                 Navigator.push(
@@ -168,10 +221,18 @@ class LoginPage extends StatelessWidget {
                   ),
                 );
               },
-              child: const Text('დაგავიწყდათ პაროლი?'),
+              child: const Text(
+                'დაგავიწყდათ პაროლი?',
+                style: TextStyle(
+                  fontFamily: 'GLVenuri',
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
             ),
+
             const SizedBox(height: 20),
 
+            // Continue button
             SizedBox(
               width: 342,
               height: 56,
@@ -179,7 +240,9 @@ class LoginPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const HomePage()),
+                    MaterialPageRoute(
+                      builder: (context) => const HomePage(),
+                    ),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -192,21 +255,32 @@ class LoginPage extends StatelessWidget {
                 ),
                 child: const Text(
                   'გაგრძელება',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                    fontFamily: 'GLVenuri',
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),
 
+            // Register
             TextButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const RegisterPage()),
+                  MaterialPageRoute(
+                    builder: (context) => const RegisterPage(),
+                  ),
                 );
               },
               child: const Text(
                 'არ გაქვთ ანგარიში? რეგისტრაცია',
-                style: TextStyle(color: Color(0xFF573F95)),
+                style: TextStyle(
+                  fontFamily: 'GLVenuri',
+                  color: Color(0xFF573F95),
+                  fontWeight: FontWeight.w400,
+                ),
               ),
             ),
           ],
@@ -242,7 +316,7 @@ class ForgotPasswordPage extends StatelessWidget {
   }
 }
 
-//nini
+// Register page
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
 
@@ -255,24 +329,44 @@ class RegisterPage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             const Text(
-              'Create your account',
-              style: TextStyle(color: Colors.white, fontSize: 24),
+              'გაიარეთ რეგისტრაცია',
+              style: TextStyle(
+                fontFamily: 'GLVenuri',
+                color: Colors.white,
+                fontSize: 24,
+                fontWeight: FontWeight.w500,
+              ),
             ),
 
             const SizedBox(height: 30),
 
+            // Email
             SizedBox(
               width: 300,
               child: TextField(
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(
+                  fontFamily: 'GLVenuri',
+                  color: Colors.white,
+                  fontWeight: FontWeight.w400,
+                ),
                 decoration: InputDecoration(
-                  labelText: 'Email',
-                  labelStyle: const TextStyle(color: Colors.white),
+                  labelText: 'ელ-პოსტა',
+                  labelStyle: const TextStyle(
+                    fontFamily: 'GLVenuri',
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
+                  ),
                   enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white),
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                      width: 1,
+                    ),
                   ),
                   focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xFF9AC76D)),
+                    borderSide: BorderSide(
+                      color: Color(0xFF9AC76D),
+                      width: 1,
+                    ),
                   ),
                 ),
               ),
@@ -280,19 +374,34 @@ class RegisterPage extends StatelessWidget {
 
             const SizedBox(height: 15),
 
+            // Password
             SizedBox(
               width: 300,
               child: TextField(
                 obscureText: true,
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(
+                  fontFamily: 'GLVenuri',
+                  color: Colors.white,
+                  fontWeight: FontWeight.w400,
+                ),
                 decoration: InputDecoration(
-                  labelText: 'Password',
-                  labelStyle: const TextStyle(color: Colors.white),
+                  labelText: 'პაროლი',
+                  labelStyle: const TextStyle(
+                    fontFamily: 'GLVenuri',
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
+                  ),
                   enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white),
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                      width: 1,
+                    ),
                   ),
                   focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xFF9AC76D)),
+                    borderSide: BorderSide(
+                      color: Color(0xFF9AC76D),
+                      width: 1,
+                    ),
                   ),
                 ),
               ),
@@ -300,9 +409,16 @@ class RegisterPage extends StatelessWidget {
 
             const SizedBox(height: 20),
 
+            // Create account button
             ElevatedButton(
               onPressed: () {},
-              child: const Text('Create account'),
+              child: const Text(
+                'დარეგისტრირება',
+                style: TextStyle(
+                  fontFamily: 'GLVenuri',
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
             ),
           ],
         ),
@@ -316,8 +432,16 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(child: Text('თქვენ წარმატებით გაიარეთ რეგისტრაცია!')),
+    return const Scaffold(
+      body: Center(
+        child: Text(
+          'თქვენ წარმატებით გაიარეთ რეგისტრაცია!',
+          style: TextStyle(
+            fontFamily: 'GLVenuri',
+            fontWeight: FontWeight.w400,
+          ),
+        ),
+      ),
     );
   }
 }

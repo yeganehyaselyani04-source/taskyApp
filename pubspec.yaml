@@ -62,6 +62,13 @@ flutter:
   - assets/back.png
   - assets/tick.png
   - assets/tasky.png
+  fonts:
+    - family: GLVenuri
+      fonts:
+        - asset: fonts/gl-venuri-regular-72504837416.ttf
+          weight: 400
+        - asset: fonts/gl-venuri-medium-72504837416.ttf
+          weight: 500
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
