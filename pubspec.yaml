@@ -62,6 +62,18 @@ flutter:
   - assets/back.png
   - assets/tick.png
   - assets/tasky.png
+  - assets/notification.png
+  - assets/menu.png
+  - assets/location.png
+  - assets/home.png
+  - assets/plus.png
+  - assets/list.png
+  - assets/profile.png
+  - assets/arrowdown.png
+  - assets/arrowright.png
+  - assets/chat.png
+  - assets/search.png
+  - assets/bookmark.png
   fonts:
     - family: GLVenuri
       fonts:
