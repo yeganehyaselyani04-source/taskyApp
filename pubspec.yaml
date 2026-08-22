@@ -74,6 +74,14 @@ flutter:
   - assets/chat.png
   - assets/search.png
   - assets/bookmark.png
+  - assets/xelosani.png
+  - assets/job1.png
+  - assets/job2.png
+  - assets/job3.png
+  - assets/gadazidva.png
+  - assets/pet.png
+  - assets/educational.png
+  - assets/miwodeba.png
   fonts:
     - family: GLVenuri
       fonts:

@@ -1366,239 +1366,243 @@ class HomePage extends StatelessWidget {
       // BODY
       // =========================
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 20),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 16),
 
-                // =========================
-                // TOP BAR
-                // =========================
-                Row(
-                  children: [
-                    Image.asset('assets/menu.png', width: 24, height: 24),
+              // =========================
+              // TOP BAR
+              // =========================
+              Row(
+                children: [
+                  Image.asset('assets/menu.png', width: 24, height: 24),
 
-                    const Spacer(),
+                  const Spacer(),
 
-                    Image.asset('assets/tasky.png', width: 70),
+                  Image.asset('assets/tasky.png', width: 70),
 
-                    const Spacer(),
+                  const Spacer(),
 
-                    Image.asset(
-                      'assets/notification.png',
-                      width: 24,
-                      height: 24,
-                    ),
-                  ],
-                ),
+                  Image.asset('assets/notification.png', width: 24, height: 24),
+                ],
+              ),
 
-                const SizedBox(height: 28),
+              const SizedBox(height: 16),
 
-                // =========================
-                // SEARCH BAR
-                // =========================
-                SizedBox(
-                  width: 342,
-                  height: 48,
-                  child: TextField(
-                    style: const TextStyle(
+              // =========================
+              // SEARCH BAR
+              // =========================
+              SizedBox(
+                width: 342,
+                height: 48,
+                child: TextField(
+                  style: const TextStyle(
+                    fontFamily: 'GLVenuri',
+                    color: Color(0xFF573F95),
+                  ),
+                  decoration: InputDecoration(
+                    hintText: 'რას ეძებთ?',
+                    hintStyle: const TextStyle(
                       fontFamily: 'GLVenuri',
-                      color: Color(0xFF573F95),
+                      color: Color(0xFF8B72C8),
                     ),
-                    decoration: InputDecoration(
-                      hintText: 'რას ეძებთ?',
-                      hintStyle: const TextStyle(
-                        fontFamily: 'GLVenuri',
-                        color: Color(0xFF8B72C8),
+                    prefixIcon: Padding(
+                      padding: const EdgeInsets.all(12),
+                      child: Image.asset(
+                        'assets/search.png',
+                        width: 20,
+                        height: 20,
                       ),
-
-                      prefixIcon: Padding(
-                        padding: const EdgeInsets.all(12),
-                        child: Image.asset(
-                          'assets/search.png',
-                          width: 20,
-                          height: 20,
-                        ),
-                      ),
-
-                      filled: true,
-                      fillColor: const Color(0xFFF1ECFA),
-
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide.none,
-                      ),
+                    ),
+                    filled: true,
+                    fillColor: const Color(0xFFF1ECFA),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide.none,
                     ),
                   ),
                 ),
+              ),
 
-                const SizedBox(height: 24),
+              const SizedBox(height: 16),
 
-                // =========================
-                // LOCATION
-                // =========================
-                Row(
+              // =========================
+              // LOCATION
+              // =========================
+              Row(
+                children: [
+                  Image.asset('assets/location.png', width: 24, height: 24),
+
+                  const SizedBox(width: 3),
+
+                  const Text(
+                    'თბილისი',
+                    style: TextStyle(
+                      fontFamily: 'GLVenuri',
+                      color: Color(0xFF573F95),
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+
+                  const SizedBox(width: 8),
+
+                  Image.asset('assets/arrowdown.png', width: 16, height: 16),
+                ],
+              ),
+
+              const SizedBox(height: 16),
+
+              // =========================
+              // CATEGORIES TITLE
+              // =========================
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'კატეგორიები',
+                    style: TextStyle(
+                      fontFamily: 'GLVenuri',
+                      color: Color(0xFF573F95),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+
+                  Row(
+                    children: [
+                      const Text(
+                        'ყველას ნახვა',
+                        style: TextStyle(
+                          fontFamily: 'GLVenuri',
+                          color: Color(0xFF7659C2),
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+
+                      const SizedBox(width: 8),
+
+                      Image.asset(
+                        'assets/arrowright.png',
+                        width: 15,
+                        height: 15,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+
+              const SizedBox(height: 16),
+
+              // =========================
+              // CATEGORIES
+              // =========================
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
                   children: [
-                    Image.asset('assets/location.png', width: 20, height: 20),
+                    _categoryButton('მიწოდება', 'assets/miwodeba.png'),
 
                     const SizedBox(width: 8),
 
-                    const Text(
-                      'თბილისი',
-                      style: TextStyle(
-                        fontFamily: 'GLVenuri',
-                        color: Color(0xFF573F95),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
+                    _categoryButton('გადაზიდვა', 'assets/gadazidva.png'),
 
-                    const SizedBox(width: 4),
+                    const SizedBox(width: 8),
 
-                    Image.asset('assets/arrowdown.png', width: 16, height: 16),
-                  ],
-                ),
+                    _categoryButton('ხელოსანი', 'assets/xelosani.png'),
 
-                const SizedBox(height: 28),
+                    const SizedBox(width: 8),
 
-                // =========================
-                // CATEGORIES TITLE
-                // =========================
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      'კატეგორიები',
-                      style: TextStyle(
-                        fontFamily: 'GLVenuri',
-                        color: Color(0xFF573F95),
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
+                    _categoryButton('ცხოველის მოვლა', 'assets/pet.png'),
 
-                    Row(
-                      children: [
-                        const Text(
-                          'ყველა',
-                          style: TextStyle(
-                            fontFamily: 'GLVenuri',
-                            color: Color(0xFF7659C2),
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
+                    const SizedBox(width: 8),
 
-                        const SizedBox(width: 4),
-
-                        Image.asset(
-                          'assets/arrowright.png',
-                          width: 16,
-                          height: 16,
-                        ),
-                      ],
+                    _categoryButton(
+                      'სასწავლო დახმარება',
+                      'assets/educational.png',
                     ),
                   ],
                 ),
+              ),
 
-                const SizedBox(height: 16),
+              const SizedBox(height: 24),
 
-                // =========================
-                // CATEGORIES
-                // =========================
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
+              // =========================
+              // RECENT JOBS TITLE
+              // =========================
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'ახალი დავალებები',
+                    style: TextStyle(
+                      fontFamily: 'GLVenuri',
+                      color: Color(0xFF573F95),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+
+                  Row(
                     children: [
-                      _categoryButton('დასუფთავება'),
-                      const SizedBox(width: 10),
-                      _categoryButton('რემონტი'),
-                      const SizedBox(width: 10),
-                      _categoryButton('მიტანა'),
-                      const SizedBox(width: 10),
-                      _categoryButton('ბაღი'),
+                      const Text(
+                        'ყველას ნახვა',
+                        style: TextStyle(
+                          fontFamily: 'GLVenuri',
+                          color: Color(0xFF7659C2),
+                          fontSize: 14,
+                        ),
+                      ),
+
+                      const SizedBox(width: 4),
+
+                      Image.asset(
+                        'assets/arrowright.png',
+                        width: 16,
+                        height: 16,
+                      ),
                     ],
                   ),
-                ),
+                ],
+              ),
 
-                const SizedBox(height: 32),
+              const SizedBox(height: 16),
 
-                // =========================
-                // RECENT JOBS TITLE
-                // =========================
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      'ბოლო განცხადებები',
-                      style: TextStyle(
-                        fontFamily: 'GLVenuri',
-                        color: Color(0xFF573F95),
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
+              // =========================
+              // JOB CARD 1
+              // =========================
+              _jobCard(
+                'assets/job1.png',
+                'სახლში დასუფთავება',
+                'თბილისი',
+                '50 ₾',
+              ),
 
-                    Row(
-                      children: [
-                        const Text(
-                          'ყველა',
-                          style: TextStyle(
-                            fontFamily: 'GLVenuri',
-                            color: Color(0xFF7659C2),
-                            fontSize: 14,
-                          ),
-                        ),
+              const SizedBox(height: 8),
 
-                        const SizedBox(width: 4),
+              // =========================
+              // JOB CARD 2
+              // =========================
+              _jobCard(
+                'assets/job2.png',
+                'სანტექნიკოსი მჭირდება',
+                'თბილისი',
+                '80 ₾',
+              ),
 
-                        Image.asset(
-                          'assets/arrowright.png',
-                          width: 16,
-                          height: 16,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+              const SizedBox(height: 8),
 
-                const SizedBox(height: 16),
+              // =========================
+              // JOB CARD 3
+              // =========================
+              _jobCard('assets/job3.png', 'ბაღის მოვლა', 'თბილისი', '40 ₾'),
 
-                // =========================
-                // JOB CARD 1
-                // =========================
-                _jobCard(
-                  'assets/job1.png',
-                  'სახლში დასუფთავება',
-                  'თბილისი',
-                  '50 ₾',
-                ),
-
-                const SizedBox(height: 16),
-
-                // =========================
-                // JOB CARD 2
-                // =========================
-                _jobCard(
-                  'assets/job2.png',
-                  'სანტექნიკოსი მჭირდება',
-                  'თბილისი',
-                  '80 ₾',
-                ),
-
-                const SizedBox(height: 16),
-
-                // =========================
-                // JOB CARD 3
-                // =========================
-                _jobCard('assets/job3.png', 'ბაღის მოვლა', 'თბილისი', '40 ₾'),
-
-                const SizedBox(height: 100),
-              ],
-            ),
+              const SizedBox(height: 28),
+            ],
           ),
         ),
       ),
@@ -1606,123 +1610,128 @@ class HomePage extends StatelessWidget {
       // =========================
       // BOTTOM NAVIGATION
       // =========================
-      bottomNavigationBar: Container(
-        height: 90,
-        decoration: const BoxDecoration(color: Color(0xFFE8E0F8)),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            // Home
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+      bottomNavigationBar: ClipRRect(
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(28),
+          bottomRight: Radius.circular(28),
+        ),
+        child: SizedBox(
+          height: 96,
+          child: BottomAppBar(
+            color: const Color(0xFFE8E0F8),
+            elevation: 0,
+            padding: EdgeInsets.zero,
+            child: Row(
               children: [
-                Image.asset('assets/home.png', width: 32, height: 32),
-                const SizedBox(height: 4),
-                const Text(
-                  'მთავარი',
-                  style: TextStyle(
-                    fontFamily: 'GLVenuri',
-                    fontSize: 10,
-                    color: Color(0xFF573F95),
-                  ),
-                ),
-              ],
-            ),
+               Expanded(
+  child: _bottomItem(
+    'assets/home.png',
+    () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const HomePage(),
+        ),
+      );
+    },
+  ),
+),
 
-            // Listings
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset('assets/list.png', width: 32, height: 32),
-                const SizedBox(height: 4),
-                const Text(
-                  'დავალებები',
-                  style: TextStyle(
-                    fontFamily: 'GLVenuri',
-                    fontSize: 10,
-                    color: Color(0xFF573F95),
-                  ),
-                ),
-              ],
-            ),
+Expanded(
+  child: _bottomItem(
+    'assets/list.png',
+    () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const TasksPage(),
+        ),
+      );
+    },
+  ),
+),
 
-            // BIG PLUS — NO TEXT
-            Container(
-              width: 82,
-              height: 82,
-              decoration: const BoxDecoration(
-                color: Color(0xFF7659C2),
-                shape: BoxShape.circle,
-              ),
-              child: const Center(
-                child: Text(
-                  '+',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 42,
-                    fontWeight: FontWeight.w300,
-                  ),
-                ),
-              ),
-            ),
+const SizedBox(width: 82),
 
-            // Messages
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset('assets/chat.png', width: 32, height: 32),
-                const SizedBox(height: 4),
-                const Text(
-                  'შეტყობინებები',
-                  style: TextStyle(
-                    fontFamily: 'GLVenuri',
-                    fontSize: 10,
-                    color: Color(0xFF573F95),
-                  ),
-                ),
-              ],
-            ),
+Expanded(
+  child: _bottomItem(
+    'assets/chat.png',
+    () {},
+  ),
+),
 
-            // Profile
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset('assets/profile.png', width: 32, height: 32),
-                const SizedBox(height: 4),
-                const Text(
-                  'პროფილი',
-                  style: TextStyle(
-                    fontFamily: 'GLVenuri',
-                    fontSize: 10,
-                    color: Color(0xFF573F95),
-                  ),
-                ),
+Expanded(
+  child: _bottomItem(
+    'assets/profile.png',
+    () {},
+  ),
+),
               ],
-            ),
-          ],
+            ), 
+          ),
         ),
       ),
+      // =========================
+      // FLOATING BUTTON
+      // =========================
+      floatingActionButton: SizedBox(
+        width: 68,
+        height: 68,
+        child: FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: const Color(0xFF7659C2),
+          elevation: 0,
+          shape: const CircleBorder(),
+          child: const Text(
+            '+',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 42,
+              fontWeight: FontWeight.w300,
+            ),
+          ),
+        ),
+      ),
+
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 
   // =========================
   // CATEGORY BUTTON
   // =========================
-  static Widget _categoryButton(String text) {
+  Widget _categoryButton(String text, String imagePath) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      width: 62,
+      height: 96,
       decoration: BoxDecoration(
-        color: const Color(0xFFF1ECFA),
-        borderRadius: BorderRadius.circular(20),
+        color: const Color(0xFFE8E0F8),
+        borderRadius: BorderRadius.circular(12),
       ),
-      child: Text(
-        text,
-        style: const TextStyle(
-          fontFamily: 'GLVenuri',
-          color: Color(0xFF573F95),
-          fontSize: 13,
-          fontWeight: FontWeight.w400,
-        ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(imagePath, width: 42, height: 42),
+
+          const SizedBox(height: 6),
+
+          SizedBox(
+            width: 54,
+            height: 32,
+            child: Text(
+              text,
+              textAlign: TextAlign.center,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                fontFamily: 'GLVenuri',
+                color: Color(0xFF7659C2),
+                fontSize: 10,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -1738,6 +1747,7 @@ class HomePage extends StatelessWidget {
   ) {
     return Container(
       width: 342,
+      height: 88,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -1754,17 +1764,21 @@ class HomePage extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
-            child: Image.asset(image, width: 90, height: 90, fit: BoxFit.cover),
+            child: Image.asset(image, width: 64, height: 64, fit: BoxFit.cover),
           ),
 
           const SizedBox(width: 12),
 
           Expanded(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
                   title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     fontFamily: 'GLVenuri',
                     color: Color(0xFF573F95),
@@ -1773,7 +1787,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
 
-                const SizedBox(height: 8),
+                const SizedBox(height: 2),
 
                 Text(
                   location,
@@ -1785,7 +1799,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
 
-                const SizedBox(height: 8),
+                const SizedBox(height: 2),
 
                 Text(
                   price,
@@ -1809,24 +1823,31 @@ class HomePage extends StatelessWidget {
   // =========================
   // BOTTOM NAV ITEM
   // =========================
-  static Widget _bottomItem(String image, String text, bool selected) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Image.asset(image, width: 22, height: 22),
-
-        const SizedBox(height: 4),
-
-        Text(
-          text,
-          style: TextStyle(
-            fontFamily: 'GLVenuri',
-            color: selected ? const Color(0xFF573F95) : const Color(0xFF9B9B9B),
-            fontSize: 10,
-            fontWeight: selected ? FontWeight.w500 : FontWeight.w400,
-          ),
+ static Widget _bottomItem(
+  String image,
+  VoidCallback onTap,
+) {
+  return SizedBox(
+    height: 96,
+    child: Center(
+      child: GestureDetector(
+        onTap: onTap,
+        child: Image.asset(
+          image,
+          width: 32,
+          height: 32,
         ),
-      ],
-    );
+      ),
+    ),
+  );
+}
+  //list
+}
+class TasksPage extends StatelessWidget {
+  const TasksPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    // Figma design here
   }
 }
