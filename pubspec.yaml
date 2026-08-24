@@ -74,10 +74,13 @@ flutter:
   - assets/chat.png
   - assets/search.png
   - assets/bookmark.png
+  - assets/bookmarked.png
   - assets/xelosani.png
   - assets/job1.png
   - assets/job2.png
   - assets/job3.png
+  - assets/location.png
+  - assets/clock.png
   - assets/gadazidva.png
   - assets/pet.png
   - assets/educational.png
@@ -88,6 +91,10 @@ flutter:
         - asset: fonts/gl-venuri-regular-72504837416.ttf
           weight: 400
         - asset: fonts/gl-venuri-medium-72504837416.ttf
+          weight: 500
+        - asset: fonts/NotoSansGeorgian-Bold.ttf
+          weight: 700
+        - asset: fonts/NotoSansGeorgian-Medium.ttf
           weight: 500
   # To add assets to your application, add an assets section, like this:
   # assets:

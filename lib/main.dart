@@ -1378,15 +1378,26 @@ class HomePage extends StatelessWidget {
               // =========================
               Row(
                 children: [
-                  Image.asset('assets/menu.png', width: 24, height: 24),
+                  Image.asset(
+                    'assets/menu.png',
+                    width: 24,
+                    height: 24,
+                  ),
 
                   const Spacer(),
 
-                  Image.asset('assets/tasky.png', width: 70),
+                  Image.asset(
+                    'assets/tasky.png',
+                    width: 70,
+                  ),
 
                   const Spacer(),
 
-                  Image.asset('assets/notification.png', width: 24, height: 24),
+                  Image.asset(
+                    'assets/notification.png',
+                    width: 24,
+                    height: 24,
+                  ),
                 ],
               ),
 
@@ -1434,7 +1445,11 @@ class HomePage extends StatelessWidget {
               // =========================
               Row(
                 children: [
-                  Image.asset('assets/location.png', width: 24, height: 24),
+                  Image.asset(
+                    'assets/location.png',
+                    width: 24,
+                    height: 24,
+                  ),
 
                   const SizedBox(width: 3),
 
@@ -1450,7 +1465,11 @@ class HomePage extends StatelessWidget {
 
                   const SizedBox(width: 8),
 
-                  Image.asset('assets/arrowdown.png', width: 16, height: 16),
+                  Image.asset(
+                    'assets/arrowdown.png',
+                    width: 16,
+                    height: 16,
+                  ),
                 ],
               ),
 
@@ -1505,19 +1524,31 @@ class HomePage extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    _categoryButton('მიწოდება', 'assets/miwodeba.png'),
+                    _categoryButton(
+                      'მიწოდება',
+                      'assets/miwodeba.png',
+                    ),
 
                     const SizedBox(width: 8),
 
-                    _categoryButton('გადაზიდვა', 'assets/gadazidva.png'),
+                    _categoryButton(
+                      'გადაზიდვა',
+                      'assets/gadazidva.png',
+                    ),
 
                     const SizedBox(width: 8),
 
-                    _categoryButton('ხელოსანი', 'assets/xelosani.png'),
+                    _categoryButton(
+                      'ხელოსანი',
+                      'assets/xelosani.png',
+                    ),
 
                     const SizedBox(width: 8),
 
-                    _categoryButton('ცხოველის მოვლა', 'assets/pet.png'),
+                    _categoryButton(
+                      'ცხოველის მოვლა',
+                      'assets/pet.png',
+                    ),
 
                     const SizedBox(width: 8),
 
@@ -1532,7 +1563,7 @@ class HomePage extends StatelessWidget {
               const SizedBox(height: 24),
 
               // =========================
-              // RECENT JOBS TITLE
+              // NEW TASKS TITLE
               // =========================
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1573,35 +1604,36 @@ class HomePage extends StatelessWidget {
               const SizedBox(height: 16),
 
               // =========================
-              // JOB CARD 1
+              // SAME TASK CARDS
               // =========================
-              _jobCard(
-                'assets/job1.png',
-                'სახლში დასუფთავება',
-                'თბილისი',
-                '50 ₾',
+
+              const TaskCard(
+                image: 'assets/job1.png',
+                title: 'კარადის აწყობა',
+                location: 'ვაკე, თბილისი',
+                time: 'დღეს, 15:00',
+                price: '30₾',
               ),
 
               const SizedBox(height: 8),
 
-              // =========================
-              // JOB CARD 2
-              // =========================
-              _jobCard(
-                'assets/job2.png',
-                'სანტექნიკოსი მჭირდება',
-                'თბილისი',
-                '80 ₾',
+              const TaskCard(
+                image: 'assets/job2.png',
+                title: 'ყუთის გადატანა',
+                location: 'დიდუბე, თბილისი',
+                time: 'ხვალ, 11:00',
+                price: '20₾',
               ),
 
               const SizedBox(height: 8),
 
-              // =========================
-              // JOB CARD 3
-              // =========================
-              _jobCard('assets/job3.png', 'ბაღის მოვლა', 'თბილისი', '40 ₾'),
-
-              const SizedBox(height: 28),
+              const TaskCard(
+                image: 'assets/job3.png',
+                title: 'ძაღლის გასეირნება',
+                location: 'საბურთალო, თბილისი',
+                time: 'დღეს, 18:00',
+                price: '15₾',
+              ),
             ],
           ),
         ),
@@ -1610,67 +1642,61 @@ class HomePage extends StatelessWidget {
       // =========================
       // BOTTOM NAVIGATION
       // =========================
-      bottomNavigationBar: ClipRRect(
-        borderRadius: const BorderRadius.only(
-          bottomLeft: Radius.circular(28),
-          bottomRight: Radius.circular(28),
-        ),
-        child: SizedBox(
-          height: 96,
-          child: BottomAppBar(
-            color: const Color(0xFFE8E0F8),
-            elevation: 0,
-            padding: EdgeInsets.zero,
-            child: Row(
-              children: [
-               Expanded(
-  child: _bottomItem(
-    'assets/home.png',
-    () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const HomePage(),
-        ),
-      );
-    },
-  ),
-),
+      bottomNavigationBar: SizedBox(
+        height: 96,
+        child: BottomAppBar(
+          color: const Color(0xFFE8E0F8),
+          elevation: 0,
+          padding: EdgeInsets.zero,
+          child: Row(
+            children: [
+              // HOME
+              Expanded(
+                child: _bottomItem(
+                  'assets/home.png',
+                  () {
+                    // Already on HomePage
+                  },
+                ),
+              ),
 
-Expanded(
-  child: _bottomItem(
-    'assets/list.png',
-    () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const TasksPage(),
-        ),
-      );
-    },
-  ),
-),
+              // TASKS
+              Expanded(
+                child: _bottomItem(
+                  'assets/list.png',
+                  () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const TasksPage(),
+                      ),
+                    );
+                  },
+                ),
+              ),
 
-const SizedBox(width: 82),
+              const SizedBox(width: 82),
 
-Expanded(
-  child: _bottomItem(
-    'assets/chat.png',
-    () {},
-  ),
-),
+              // CHAT
+              Expanded(
+                child: _bottomItem(
+                  'assets/chat.png',
+                  () {},
+                ),
+              ),
 
-Expanded(
-  child: _bottomItem(
-    'assets/profile.png',
-    () {},
-  ),
-),
-              ],
-            ), 
+              // PROFILE
+              Expanded(
+                child: _bottomItem(
+                  'assets/profile.png',
+                  () {},
+                ),
+              ),
+            ],
           ),
         ),
       ),
+
       // =========================
       // FLOATING BUTTON
       // =========================
@@ -1693,14 +1719,18 @@ Expanded(
         ),
       ),
 
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.centerDocked,
     );
   }
 
   // =========================
   // CATEGORY BUTTON
   // =========================
-  Widget _categoryButton(String text, String imagePath) {
+  Widget _categoryButton(
+    String text,
+    String imagePath,
+  ) {
     return Container(
       width: 62,
       height: 96,
@@ -1711,7 +1741,11 @@ Expanded(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(imagePath, width: 42, height: 42),
+          Image.asset(
+            imagePath,
+            width: 42,
+            height: 42,
+          ),
 
           const SizedBox(height: 6),
 
@@ -1737,117 +1771,581 @@ Expanded(
   }
 
   // =========================
-  // JOB CARD
+  // BOTTOM ITEM
   // =========================
-  static Widget _jobCard(
+  static Widget _bottomItem(
     String image,
-    String title,
-    String location,
-    String price,
+    VoidCallback onTap,
+  ) {
+    return SizedBox(
+      height: 96,
+      child: Center(
+        child: GestureDetector(
+          onTap: onTap,
+          child: Image.asset(
+            image,
+            width: 32,
+            height: 32,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+// =====================================================
+// TASKS PAGE
+// =====================================================
+
+class TasksPage extends StatelessWidget {
+  const TasksPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+
+      // =========================
+      // BODY
+      // =========================
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 20),
+
+              // =========================
+              // TOP BAR
+              // =========================
+              SizedBox(
+                width: 342,
+                height: 34,
+                child: Row(
+                  children: [
+                    Image.asset(
+                      'assets/menu.png',
+                      width: 24,
+                      height: 24,
+                    ),
+
+                    const Spacer(),
+
+                    const Text(
+                      'დავალებები',
+                      style: TextStyle(
+                        fontFamily: 'NotoSansGeorgian',
+                        color: Color(0xFF573F95),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+
+                    const Spacer(),
+
+                    Image.asset(
+                      'assets/notification.png',
+                      width: 24,
+                      height: 24,
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 24),
+
+              // =========================
+              // TABS
+              // =========================
+              SizedBox(
+                width: 340,
+                height: 48,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: _taskTab(
+                        'ყველა',
+                        '5',
+                        true,
+                      ),
+                    ),
+
+                    const SizedBox(width: 8),
+
+                    Expanded(
+                      child: _taskTab(
+                        'მიმდინარე',
+                        '2',
+                        false,
+                      ),
+                    ),
+
+                    const SizedBox(width: 8),
+
+                    Expanded(
+                      child: _taskTab(
+                        'დასრულებული',
+                        '3',
+                        false,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 16),
+
+              // =========================
+              // SEARCH
+              // =========================
+              SizedBox(
+                width: 342,
+                height: 48,
+                child: TextField(
+                  style: const TextStyle(
+                    fontFamily: 'NotoSansGeorgian',
+                    color: Color(0xFF573F95),
+                    fontSize: 12,
+                  ),
+                  decoration: InputDecoration(
+                    hintText: 'მოძებნე სასურველი დავალება...',
+                    hintStyle: const TextStyle(
+                      fontFamily: 'NotoSansGeorgian',
+                      color: Color(0xFF7659C2),
+                      fontSize: 12,
+                    ),
+                    prefixIcon: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Image.asset(
+                        'assets/search.png',
+                        width: 16,
+                        height: 16,
+                      ),
+                    ),
+                    filled: true,
+                    fillColor: const Color(0x337659C2),
+                    contentPadding: EdgeInsets.zero,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide.none,
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide.none,
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide.none,
+                    ),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 16),
+
+              // =========================
+              // TASK CARDS
+              // =========================
+              const TaskCard(
+                image: 'assets/job1.png',
+                title: 'კარადის აწყობა',
+                location: 'ვაკე, თბილისი',
+                time: 'დღეს, 15:00',
+                price: '30₾',
+              ),
+
+              const SizedBox(height: 8),
+
+              const TaskCard(
+                image: 'assets/job2.png',
+                title: 'ყუთის გადატანა',
+                location: 'დიდუბე, თბილისი',
+                time: 'ხვალ, 11:00',
+                price: '20₾',
+              ),
+
+              const SizedBox(height: 8),
+
+              const TaskCard(
+                image: 'assets/job3.png',
+                title: 'ძაღლის გასეირნება',
+                location: 'საბურთალო, თბილისი',
+                time: 'დღეს, 18:00',
+                price: '15₾',
+              ),
+            ],
+          ),
+        ),
+      ),
+
+      // =========================
+      // BOTTOM NAVIGATION
+      // =========================
+      bottomNavigationBar: SizedBox(
+        height: 96,
+        child: BottomAppBar(
+          color: const Color(0xFFE8E0F8),
+          elevation: 0,
+          padding: EdgeInsets.zero,
+          child: Row(
+            children: [
+              // HOME
+              Expanded(
+                child: _bottomIcon(
+                  'assets/home.png',
+                  () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HomePage(),
+                      ),
+                    );
+                  },
+                ),
+              ),
+
+              // TASKS
+              Expanded(
+                child: _bottomIcon(
+                  'assets/list.png',
+                  () {
+                    // Already on TasksPage
+                  },
+                ),
+              ),
+
+              const SizedBox(width: 82),
+
+              // CHAT
+              Expanded(
+                child: _bottomIcon(
+                  'assets/chat.png',
+                  () {},
+                ),
+              ),
+
+              // PROFILE
+              Expanded(
+                child: _bottomIcon(
+                  'assets/profile.png',
+                  () {},
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+
+      // =========================
+      // FLOATING BUTTON
+      // =========================
+      floatingActionButton: SizedBox(
+        width: 82,
+        height: 82,
+        child: FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: const Color(0xFF7659C2),
+          elevation: 0,
+          shape: const CircleBorder(),
+          child: const Text(
+            '+',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 42,
+              fontWeight: FontWeight.w300,
+            ),
+          ),
+        ),
+      ),
+
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.centerDocked,
+    );
+  }
+
+  // =========================
+  // TASK TAB
+  // =========================
+  static Widget _taskTab(
+    String text,
+    String number,
+    bool selected,
   ) {
     return Container(
-      width: 342,
-      height: 88,
-      padding: const EdgeInsets.all(12),
+      height: 48,
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: const [
-          BoxShadow(
-            color: Color(0x18000000),
-            blurRadius: 10,
-            offset: Offset(0, 3),
+        border: Border(
+          bottom: BorderSide(
+            color: selected
+                ? const Color(0xFF573F95)
+                : const Color(0x337659C2),
+            width: selected ? 2 : 1,
           ),
-        ],
+        ),
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: Image.asset(image, width: 64, height: 64, fit: BoxFit.cover),
-          ),
-
-          const SizedBox(width: 12),
-
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  title,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    fontFamily: 'GLVenuri',
-                    color: Color(0xFF573F95),
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-
-                const SizedBox(height: 2),
-
-                Text(
-                  location,
-                  style: const TextStyle(
-                    fontFamily: 'GLVenuri',
-                    color: Color(0xFF8B72C8),
-                    fontSize: 13,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-
-                const SizedBox(height: 2),
-
-                Text(
-                  price,
-                  style: const TextStyle(
-                    fontFamily: 'GLVenuri',
-                    color: Color(0xFF573F95),
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ],
+          Text(
+            text,
+            style: TextStyle(
+              fontFamily: 'NotoSansGeorgian',
+              color: selected
+                  ? const Color(0xFF573F95)
+                  : const Color(0xFF7659C2),
+              fontSize: 11,
+              fontWeight: selected
+                  ? FontWeight.w500
+                  : FontWeight.w400,
             ),
           ),
 
-          Image.asset('assets/bookmark.png', width: 22, height: 22),
+          const SizedBox(width: 4),
+
+          Container(
+            width: 16,
+            height: 16,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: selected
+                  ? const Color(0xFFD9CFF1)
+                  : const Color(0xFFE8E0F8),
+              shape: BoxShape.circle,
+            ),
+            child: Text(
+              number,
+              style: const TextStyle(
+                fontFamily: 'NotoSansGeorgian',
+                color: Color(0xFF7659C2),
+                fontSize: 9,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
 
   // =========================
-  // BOTTOM NAV ITEM
+  // BOTTOM ICON
   // =========================
- static Widget _bottomItem(
-  String image,
-  VoidCallback onTap,
-) {
-  return SizedBox(
-    height: 96,
-    child: Center(
-      child: GestureDetector(
-        onTap: onTap,
-        child: Image.asset(
-          image,
-          width: 32,
-          height: 32,
+  static Widget _bottomIcon(
+    String image,
+    VoidCallback onTap,
+  ) {
+    return SizedBox(
+      height: 96,
+      child: Center(
+        child: GestureDetector(
+          onTap: onTap,
+          child: Image.asset(
+            image,
+            width: 32,
+            height: 32,
+          ),
         ),
       ),
-    ),
-  );
+    );
+  }
 }
-  //list
+
+
+// =====================================================
+// SHARED TASK CARD
+// =====================================================
+
+class TaskCard extends StatefulWidget {
+  final String image;
+  final String title;
+  final String location;
+  final String time;
+  final String price;
+
+  const TaskCard({
+    super.key,
+    required this.image,
+    required this.title,
+    required this.location,
+    required this.time,
+    required this.price,
+  });
+
+  @override
+  State<TaskCard> createState() => _TaskCardState();
 }
-class TasksPage extends StatelessWidget {
-  const TasksPage({super.key});
+
+class _TaskCardState extends State<TaskCard> {
+  bool bookmarked = false;
 
   @override
   Widget build(BuildContext context) {
-    // Figma design here
+    return Container(
+      width: 342,
+      height: 88,
+      decoration: BoxDecoration(
+        color: const Color(0x407659C2),
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0x26573F95),
+            blurRadius: 30,
+            spreadRadius: 0,
+            offset: Offset(0, 0),
+          ),
+        ],
+      ),
+      child: Stack(
+        children: [
+          // =========================
+          // IMAGE
+          // =========================
+          Positioned(
+            left: 7,
+            top: 8,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Image.asset(
+                widget.image,
+                width: 73,
+                height: 73,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+
+          // =========================
+          // TITLE
+          // =========================
+          Positioned(
+            left: 89,
+            top: 8,
+            child: SizedBox(
+              width: 121,
+              height: 19,
+              child: Text(
+                widget.title,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  fontFamily: 'NotoSansGeorgian',
+                  color: Color(0xFF573F95),
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  height: 1,
+                ),
+              ),
+            ),
+          ),
+
+          // =========================
+          // LOCATION
+          // =========================
+          Positioned(
+            left: 97,
+            top: 33,
+            child: Row(
+              children: [
+                Image.asset(
+                  'assets/location.png',
+                  width: 16,
+                  height: 16,
+                ),
+
+                const SizedBox(width: 2),
+
+                Text(
+                  widget.location,
+                  style: const TextStyle(
+                    fontFamily: 'NotoSansGeorgian',
+                    color: Color(0xFF7659C2),
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    height: 1,
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          // =========================
+          // TIME
+          // =========================
+          Positioned(
+            left: 97,
+            top: 57,
+            child: Row(
+              children: [
+                Image.asset(
+                  'assets/clock.png',
+                  width: 16,
+                  height: 16,
+                ),
+
+                const SizedBox(width: 2),
+
+                Text(
+                  widget.time,
+                  style: const TextStyle(
+                    fontFamily: 'NotoSansGeorgian',
+                    color: Color(0xFF7659C2),
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    height: 1,
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          // =========================
+          // PRICE
+          // =========================
+          Positioned(
+            left: 298,
+            top: 8,
+            child: SizedBox(
+              width: 36,
+              height: 22,
+              child: Text(
+                widget.price,
+                textAlign: TextAlign.right,
+                style: const TextStyle(
+                  fontFamily: 'NotoSansGeorgian',
+                  color: Color(0xFF573F95),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  height: 1,
+                ),
+              ),
+            ),
+          ),
+
+          // =========================
+          // BOOKMARK
+          // =========================
+          Positioned(
+            left: 310,
+            top: 56,
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  bookmarked = !bookmarked;
+                });
+              },
+              child: Image.asset(
+                bookmarked
+                    ? 'assets/bookmarked.png'
+                    : 'assets/bookmark.png',
+                width: 24,
+                height: 24,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
