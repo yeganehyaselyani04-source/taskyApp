@@ -1378,26 +1378,31 @@ class HomePage extends StatelessWidget {
               // =========================
               Row(
                 children: [
-                  Image.asset(
-                    'assets/menu.png',
-                    width: 24,
-                    height: 24,
+                  Builder(
+                    builder: (context) => GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const MenuPage(),
+                          ),
+                        );
+                      },
+                      child: Image.asset(
+                        'assets/menu.png',
+                        width: 24,
+                        height: 24,
+                      ),
+                    ),
                   ),
 
                   const Spacer(),
 
-                  Image.asset(
-                    'assets/tasky.png',
-                    width: 70,
-                  ),
+                  Image.asset('assets/tasky.png', width: 70),
 
                   const Spacer(),
 
-                  Image.asset(
-                    'assets/notification.png',
-                    width: 24,
-                    height: 24,
-                  ),
+                  Image.asset('assets/notification.png', width: 24, height: 24),
                 ],
               ),
 
@@ -1445,11 +1450,7 @@ class HomePage extends StatelessWidget {
               // =========================
               Row(
                 children: [
-                  Image.asset(
-                    'assets/location.png',
-                    width: 24,
-                    height: 24,
-                  ),
+                  Image.asset('assets/location.png', width: 24, height: 24),
 
                   const SizedBox(width: 3),
 
@@ -1465,11 +1466,7 @@ class HomePage extends StatelessWidget {
 
                   const SizedBox(width: 8),
 
-                  Image.asset(
-                    'assets/arrowdown.png',
-                    width: 16,
-                    height: 16,
-                  ),
+                  Image.asset('assets/arrowdown.png', width: 16, height: 16),
                 ],
               ),
 
@@ -1524,31 +1521,19 @@ class HomePage extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    _categoryButton(
-                      'მიწოდება',
-                      'assets/miwodeba.png',
-                    ),
+                    _categoryButton('მიწოდება', 'assets/miwodeba.png'),
 
                     const SizedBox(width: 8),
 
-                    _categoryButton(
-                      'გადაზიდვა',
-                      'assets/gadazidva.png',
-                    ),
+                    _categoryButton('გადაზიდვა', 'assets/gadazidva.png'),
 
                     const SizedBox(width: 8),
 
-                    _categoryButton(
-                      'ხელოსანი',
-                      'assets/xelosani.png',
-                    ),
+                    _categoryButton('ხელოსანი', 'assets/xelosani.png'),
 
                     const SizedBox(width: 8),
 
-                    _categoryButton(
-                      'ცხოველის მოვლა',
-                      'assets/pet.png',
-                    ),
+                    _categoryButton('ცხოველის მოვლა', 'assets/pet.png'),
 
                     const SizedBox(width: 8),
 
@@ -1606,7 +1591,6 @@ class HomePage extends StatelessWidget {
               // =========================
               // SAME TASK CARDS
               // =========================
-
               const TaskCard(
                 image: 'assets/job1.png',
                 title: 'კარადის აწყობა',
@@ -1652,50 +1636,38 @@ class HomePage extends StatelessWidget {
             children: [
               // HOME
               Expanded(
-                child: _bottomItem(
-                  'assets/home.png',
-                  () {
-                    // Already on HomePage
-                  },
-                ),
+                child: _bottomItem('assets/home.png', () {
+                  // Already on HomePage
+                }),
               ),
 
               // TASKS
               Expanded(
-                child: _bottomItem(
-                  'assets/list.png',
-                  () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const TasksPage(),
-                      ),
-                    );
-                  },
-                ),
+                child: _bottomItem('assets/list.png', () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const TasksPage()),
+                  );
+                }),
               ),
 
               const SizedBox(width: 82),
 
               // CHAT
-              Expanded(
-                child: _bottomItem(
-                  'assets/chat.png',
-                  () {},
-                ),
-              ),
+              Expanded(child: _bottomItem('assets/chat.png', () {})),
 
               // PROFILE
-              Expanded(
-                child: _bottomItem(
-                  'assets/profile.png',
-                  () {},
-                ),
-              ),
-            ],
-          ),
-        ),
+              // PROFILE
+Expanded(
+  child: _bottomItem('assets/profile.png', () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const ProfilePage(),
       ),
+    );
+  }),
+),
 
       // =========================
       // FLOATING BUTTON
@@ -1719,18 +1691,14 @@ class HomePage extends StatelessWidget {
         ),
       ),
 
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 
   // =========================
   // CATEGORY BUTTON
   // =========================
-  Widget _categoryButton(
-    String text,
-    String imagePath,
-  ) {
+  Widget _categoryButton(String text, String imagePath) {
     return Container(
       width: 62,
       height: 96,
@@ -1741,11 +1709,7 @@ class HomePage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(
-            imagePath,
-            width: 42,
-            height: 42,
-          ),
+          Image.asset(imagePath, width: 42, height: 42),
 
           const SizedBox(height: 6),
 
@@ -1773,26 +1737,18 @@ class HomePage extends StatelessWidget {
   // =========================
   // BOTTOM ITEM
   // =========================
-  static Widget _bottomItem(
-    String image,
-    VoidCallback onTap,
-  ) {
+  static Widget _bottomItem(String image, VoidCallback onTap) {
     return SizedBox(
       height: 96,
       child: Center(
         child: GestureDetector(
           onTap: onTap,
-          child: Image.asset(
-            image,
-            width: 32,
-            height: 32,
-          ),
+          child: Image.asset(image, width: 32, height: 32),
         ),
       ),
     );
   }
 }
-
 
 // =====================================================
 // TASKS PAGE
@@ -1825,11 +1781,7 @@ class TasksPage extends StatelessWidget {
                 height: 34,
                 child: Row(
                   children: [
-                    Image.asset(
-                      'assets/menu.png',
-                      width: 24,
-                      height: 24,
-                    ),
+                    Image.asset('assets/menu.png', width: 24, height: 24),
 
                     const Spacer(),
 
@@ -1864,33 +1816,15 @@ class TasksPage extends StatelessWidget {
                 height: 48,
                 child: Row(
                   children: [
-                    Expanded(
-                      child: _taskTab(
-                        'ყველა',
-                        '5',
-                        true,
-                      ),
-                    ),
+                    Expanded(child: _taskTab('ყველა', '5', true)),
 
                     const SizedBox(width: 8),
 
-                    Expanded(
-                      child: _taskTab(
-                        'მიმდინარე',
-                        '2',
-                        false,
-                      ),
-                    ),
+                    Expanded(child: _taskTab('მიმდინარე', '2', false)),
 
                     const SizedBox(width: 8),
 
-                    Expanded(
-                      child: _taskTab(
-                        'დასრულებული',
-                        '3',
-                        false,
-                      ),
-                    ),
+                    Expanded(child: _taskTab('დასრულებული', '3', false)),
                   ],
                 ),
               ),
@@ -1993,50 +1927,38 @@ class TasksPage extends StatelessWidget {
             children: [
               // HOME
               Expanded(
-                child: _bottomIcon(
-                  'assets/home.png',
-                  () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const HomePage(),
-                      ),
-                    );
-                  },
-                ),
+                child: _bottomIcon('assets/home.png', () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomePage()),
+                  );
+                }),
               ),
 
               // TASKS
               Expanded(
-                child: _bottomIcon(
-                  'assets/list.png',
-                  () {
-                    // Already on TasksPage
-                  },
-                ),
+                child: _bottomIcon('assets/list.png', () {
+                  // Already on TasksPage
+                }),
               ),
 
               const SizedBox(width: 82),
 
               // CHAT
-              Expanded(
-                child: _bottomIcon(
-                  'assets/chat.png',
-                  () {},
-                ),
-              ),
+              Expanded(child: _bottomIcon('assets/chat.png', () {})),
 
               // PROFILE
-              Expanded(
-                child: _bottomIcon(
-                  'assets/profile.png',
-                  () {},
-                ),
-              ),
-            ],
-          ),
-        ),
+           // PROFILE
+Expanded(
+  child: _bottomIcon('assets/profile.png', () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const ProfilePage(),
       ),
+    );
+  }),
+),
 
       // =========================
       // FLOATING BUTTON
@@ -2060,27 +1982,20 @@ class TasksPage extends StatelessWidget {
         ),
       ),
 
-      floatingActionButtonLocation:
-          FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 
   // =========================
   // TASK TAB
   // =========================
-  static Widget _taskTab(
-    String text,
-    String number,
-    bool selected,
-  ) {
+  static Widget _taskTab(String text, String number, bool selected) {
     return Container(
       height: 48,
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
-            color: selected
-                ? const Color(0xFF573F95)
-                : const Color(0x337659C2),
+            color: selected ? const Color(0xFF573F95) : const Color(0x337659C2),
             width: selected ? 2 : 1,
           ),
         ),
@@ -2096,9 +2011,7 @@ class TasksPage extends StatelessWidget {
                   ? const Color(0xFF573F95)
                   : const Color(0xFF7659C2),
               fontSize: 11,
-              fontWeight: selected
-                  ? FontWeight.w500
-                  : FontWeight.w400,
+              fontWeight: selected ? FontWeight.w500 : FontWeight.w400,
             ),
           ),
 
@@ -2132,26 +2045,18 @@ class TasksPage extends StatelessWidget {
   // =========================
   // BOTTOM ICON
   // =========================
-  static Widget _bottomIcon(
-    String image,
-    VoidCallback onTap,
-  ) {
+  static Widget _bottomIcon(String image, VoidCallback onTap) {
     return SizedBox(
       height: 96,
       child: Center(
         child: GestureDetector(
           onTap: onTap,
-          child: Image.asset(
-            image,
-            width: 32,
-            height: 32,
-          ),
+          child: Image.asset(image, width: 32, height: 32),
         ),
       ),
     );
   }
 }
-
 
 // =====================================================
 // SHARED TASK CARD
@@ -2248,11 +2153,7 @@ class _TaskCardState extends State<TaskCard> {
             top: 33,
             child: Row(
               children: [
-                Image.asset(
-                  'assets/location.png',
-                  width: 16,
-                  height: 16,
-                ),
+                Image.asset('assets/location.png', width: 16, height: 16),
 
                 const SizedBox(width: 2),
 
@@ -2278,11 +2179,7 @@ class _TaskCardState extends State<TaskCard> {
             top: 57,
             child: Row(
               children: [
-                Image.asset(
-                  'assets/clock.png',
-                  width: 16,
-                  height: 16,
-                ),
+                Image.asset('assets/clock.png', width: 16, height: 16),
 
                 const SizedBox(width: 2),
 
@@ -2336,15 +2233,182 @@ class _TaskCardState extends State<TaskCard> {
                 });
               },
               child: Image.asset(
-                bookmarked
-                    ? 'assets/bookmarked.png'
-                    : 'assets/bookmark.png',
+                bookmarked ? 'assets/bookmarked.png' : 'assets/bookmark.png',
                 width: 24,
                 height: 24,
               ),
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class MenuPage extends StatelessWidget {
+  const MenuPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Column(
+            children: [
+              const SizedBox(height: 20),
+
+              // TOP BAR
+              SizedBox(
+                width: 342,
+                height: 60,
+                child: Stack(
+                  children: [
+                    // TITLE
+                    Positioned(
+                      left: 133,
+                      top: 12,
+                      child: const SizedBox(
+                        width: 76,
+                        height: 34,
+                        child: Text(
+                          'მენიუ',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'GLVenuri',
+                            color: Color(0xFF573F95),
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    // BACK BUTTON
+                    Positioned(
+                      left: 294,
+                      top: 0,
+                      child: GestureDetector(
+                        onTap: () => Navigator.pop(context),
+                        child: Container(
+                          width: 48,
+                          height: 48,
+                          alignment: Alignment.center,
+                          child: Image.asset(
+                            'assets/back.png',
+                            width: 48,
+                            height: 48,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 26),
+
+              _menuButton('assets/saved.png', 'შენახული დავალებები'),
+
+              _menuButton('assets/wallet.png', 'ბალანსი'),
+
+              _menuButton('assets/favorite.png', 'აპლიკაციის შეფასება'),
+
+              _menuButton('assets/share.png', 'აპლიკაციის გაზიარება'),
+
+              _menuButton('assets/security.png', 'კონფიდენციალურობის პოლიტიკა'),
+
+              _menuButton('assets/policy.png', 'გამოყენების პირობები'),
+
+              const SizedBox(height: 32),
+
+              _menuButton('assets/support.png', 'დახმარება'),
+
+              _menuButton('assets/settings.png', 'პარამეტრები'),
+
+              const SizedBox(height: 24),
+
+              // LOG OUT
+              Container(
+                width: 342,
+                height: 56,
+                decoration: BoxDecoration(
+                  color: const Color(0xFFFFCCCC),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.logout, color: Colors.red, size: 20),
+                    const SizedBox(width: 8),
+                    const Text(
+                      'გასვლა',
+                      style: TextStyle(
+                        fontFamily: 'Noto Sans Georgian',
+                        color: Colors.red,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  static Widget _menuButton(String icon, String text) {
+    return Container(
+      width: 342,
+      height: 56,
+      margin: const EdgeInsets.only(bottom: 8),
+      decoration: BoxDecoration(
+        color: const Color(0xFF7659C2),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Row(
+        children: [
+          const SizedBox(width: 16),
+
+          Image.asset(icon, width: 24, height: 24),
+
+          const SizedBox(width: 16),
+
+          Text(
+            text,
+            style: const TextStyle(
+              fontFamily: 'Noto Sans Georgian',
+              color: Colors.white,
+              fontSize: 13,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Column(
+            children: [
+              // We'll add the profile UI here
+            ],
+          ),
+        ),
       ),
     );
   }

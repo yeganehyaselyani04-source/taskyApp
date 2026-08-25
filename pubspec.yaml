@@ -85,6 +85,14 @@ flutter:
   - assets/pet.png
   - assets/educational.png
   - assets/miwodeba.png
+  - assets/wallet.png
+  - assets/security.png
+  - assets/policy.png
+  - assets/settings.png
+  - assets/share.png
+  - assets/favorite.png
+  - assets/support.png
+  - assets/saved.png
   fonts:
     - family: GLVenuri
       fonts:
