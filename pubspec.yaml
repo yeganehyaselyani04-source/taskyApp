@@ -81,6 +81,12 @@ flutter:
   - assets/job3.png
   - assets/job4.png
   - assets/job5.png
+  - assets/job6.png
+  - assets/job7.png
+  - assets/job8.png
+  - assets/job9.png
+  - assets/job10.png
+  - assets/job11.png
   - assets/camera.png
   - assets/profile_photo.png
   - assets/location.png
@@ -100,7 +106,7 @@ flutter:
   - assets/animal.png
   - assets/cleaning.png
   - assets/repair.png
-  - assets/technicals.png
+  - assets/technical.png
   fonts:
     - family: GLVenuri
       fonts:

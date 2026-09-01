@@ -1470,53 +1470,53 @@ class HomePage extends StatelessWidget {
 
               const SizedBox(height: 16),
 
-            // CATEGORIES TITLE
-Row(
-  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  children: [
-    const Text(
-      'კატეგორიები',
-      style: TextStyle(
-        fontFamily: 'Noto Sans Georgian',
-        color: Color(0xFF573F95),
-        fontSize: 16,
-        fontWeight: FontWeight.w500,
-      ),
-    ),
+              // CATEGORIES TITLE
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'კატეგორიები',
+                    style: TextStyle(
+                      fontFamily: 'Noto Sans Georgian',
+                      color: Color(0xFF573F95),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
 
-    GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const MoreCategoriesPage(),
-          ),
-        );
-      },
-      child: Row(
-        children: [
-          const Text(
-            'ყველას ნახვა',
-            style: TextStyle(
-              fontFamily: 'Noto Sans Georgian',
-              color: Color(0xFF7659C2),
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
-            ),
-          ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MoreCategoriesPage(),
+                        ),
+                      );
+                    },
+                    child: Row(
+                      children: [
+                        const Text(
+                          'ყველას ნახვა',
+                          style: TextStyle(
+                            fontFamily: 'Noto Sans Georgian',
+                            color: Color(0xFF7659C2),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
 
-          const SizedBox(width: 8),
+                        const SizedBox(width: 8),
 
-          Image.asset(
-            'assets/arrowright.png',
-            width: 15,
-            height: 15,
-          ),
-        ],
-      ),
-    ),
-  ],
-),
+                        Image.asset(
+                          'assets/arrowright.png',
+                          width: 15,
+                          height: 15,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
 
               const SizedBox(height: 16),
 
@@ -1546,52 +1546,52 @@ Row(
               ),
 
               const SizedBox(height: 24),
-// NEW TASKS TITLE
-Row(
-  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  children: [
-    const Text(
-      'ახალი დავალებები',
-      style: TextStyle(
-        fontFamily: 'Noto Sans Georgian',
-        color: Color(0xFF573F95),
-        fontSize: 16,
-        fontWeight: FontWeight.w500,
-      ),
-    ),
+              // NEW TASKS TITLE
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'ახალი დავალებები',
+                    style: TextStyle(
+                      fontFamily: 'Noto Sans Georgian',
+                      color: Color(0xFF573F95),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
 
-    GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const MoreTasksPage(),
-          ),
-        );
-      },
-      child: Row(
-        children: [
-          const Text(
-            'ყველას ნახვა',
-            style: TextStyle(
-              fontFamily: 'Noto Sans Georgian',
-              color: Color(0xFF7659C2),
-              fontSize: 12,
-            ),
-          ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MoreTasksPage(),
+                        ),
+                      );
+                    },
+                    child: Row(
+                      children: [
+                        const Text(
+                          'ყველას ნახვა',
+                          style: TextStyle(
+                            fontFamily: 'Noto Sans Georgian',
+                            color: Color(0xFF7659C2),
+                            fontSize: 12,
+                          ),
+                        ),
 
-          const SizedBox(width: 4),
+                        const SizedBox(width: 4),
 
-          Image.asset(
-            'assets/arrowright.png',
-            width: 16,
-            height: 16,
-          ),
-        ],
-      ),
-    ),
-  ],
-),
+                        Image.asset(
+                          'assets/arrowright.png',
+                          width: 16,
+                          height: 16,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
 
               const SizedBox(height: 16),
 
@@ -3305,6 +3305,7 @@ class ProfilePage extends StatelessWidget {
     );
   }
 }
+
 class BalancePage extends StatelessWidget {
   const BalancePage({super.key});
 
@@ -3352,10 +3353,7 @@ class BalancePage extends StatelessWidget {
 
                     const Spacer(),
 
-                    const SizedBox(
-                      width: 24,
-                      height: 24,
-                    ),
+                    const SizedBox(width: 24, height: 24),
                   ],
                 ),
               ),
@@ -3637,10 +3635,7 @@ class BalancePage extends StatelessWidget {
       height: 50,
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(
-          color: const Color(0xFFDCD4F2),
-          width: 1,
-        ),
+        border: Border.all(color: const Color(0xFFDCD4F2), width: 1),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Row(
@@ -3732,7 +3727,6 @@ class MoreCategoriesPage extends StatelessWidget {
               // =================================================
               // TOP BAR
               // =================================================
-
               SizedBox(
                 width: 342,
                 height: 40,
@@ -3763,10 +3757,7 @@ class MoreCategoriesPage extends StatelessWidget {
 
                     const Spacer(),
 
-                    const SizedBox(
-                      width: 24,
-                      height: 24,
-                    ),
+                    const SizedBox(width: 24, height: 24),
                   ],
                 ),
               ),
@@ -3776,7 +3767,6 @@ class MoreCategoriesPage extends StatelessWidget {
               // =================================================
               // SEARCH BAR
               // =================================================
-
               SizedBox(
                 width: 342,
                 height: 48,
@@ -3830,7 +3820,6 @@ class MoreCategoriesPage extends StatelessWidget {
               // =================================================
               // CATEGORIES GRID
               // =================================================
-
               Expanded(
                 child: GridView.count(
                   crossAxisCount: 4,
@@ -3839,53 +3828,35 @@ class MoreCategoriesPage extends StatelessWidget {
                   childAspectRatio: 1,
                   physics: const NeverScrollableScrollPhysics(),
                   children: [
-                    _categoryButton(
-                      'მიწოდება',
-                      'assets/miwodeba.png',
-                    ),
+                    _categoryButton('მიწოდება', 'assets/miwodeba.png'),
 
-                    _categoryButton(
-                      'გადაზიდვა',
-                      'assets/gadazidva.png',
-                    ),
+                    _categoryButton('გადაზიდვა', 'assets/gadazidva.png'),
 
                     _categoryButton(
                       'სასწავლო დახმარება',
                       'assets/educational.png',
                     ),
 
-                    _categoryButton(
-                      'ხელოსანი',
-                      'assets/xelosani.png',
-                    ),
+                    _categoryButton('ხელოსანი', 'assets/xelosani.png'),
 
-                    _categoryButton(
-                      'ცხოველის მოვლა',
-                      'assets/animal.png',
-                    ),
+                    _categoryButton('ცხოველის მოვლა', 'assets/animal.png'),
 
-                    _categoryButton(
-                      'დასუფთავება',
-                      'assets/cleaning.png',
-                    ),
+                    _categoryButton('დასუფთავება', 'assets/cleaning.png'),
 
-                    _categoryButton(
-                      'რემონტი',
-                      'assets/repair.png',
-                    ),
+                    _categoryButton('რემონტი', 'assets/repair.png'),
 
                     _categoryButton(
                       'ტექნიკური დახმარება',
                       'assets/technical.png',
                     ),
 
-                    _categoryButton(
-                      'შინაური ცხოველი',
+                    /*  _categoryButton(
+                      'შშმ პირის მოვლა',
                       'assets/pet.png',
                     ),
 
                     _categoryButton(
-                      'ბაღი',
+                      'ძიძა',
                       'assets/garden.png',
                     ),
 
@@ -3895,7 +3866,7 @@ class MoreCategoriesPage extends StatelessWidget {
                     ),
 
                     _categoryButton(
-                      'ონლაინ დახმარება',
+                      'ღონისძიების დაგეგმვა',
                       'assets/online.png',
                     ),
 
@@ -3905,19 +3876,19 @@ class MoreCategoriesPage extends StatelessWidget {
                     ),
 
                     _categoryButton(
-                      'ფოტოგრაფია',
+                      'ფოტოგრაფი, ვიდეოგრაფი',
                       'assets/photography.png',
                     ),
 
                     _categoryButton(
-                      'მშენებლობა',
+                      'მძღოლი',
                       'assets/construction.png',
                     ),
 
                     _categoryButton(
                       'სხვა',
                       'assets/other.png',
-                    ),
+                    ),*/
                   ],
                 ),
               ),
@@ -3929,7 +3900,6 @@ class MoreCategoriesPage extends StatelessWidget {
       // =================================================
       // BOTTOM NAVIGATION
       // =================================================
-
       bottomNavigationBar: SizedBox(
         height: 96,
         child: BottomAppBar(
@@ -3943,9 +3913,7 @@ class MoreCategoriesPage extends StatelessWidget {
                 child: _bottomItem('assets/home.png', () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => const HomePage(),
-                    ),
+                    MaterialPageRoute(builder: (context) => const HomePage()),
                   );
                 }),
               ),
@@ -3955,9 +3923,7 @@ class MoreCategoriesPage extends StatelessWidget {
                 child: _bottomItem('assets/list.png', () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => const TasksPage(),
-                    ),
+                    MaterialPageRoute(builder: (context) => const TasksPage()),
                   );
                 }),
               ),
@@ -3993,9 +3959,7 @@ class MoreCategoriesPage extends StatelessWidget {
               const SizedBox(width: 32),
 
               // CHAT
-              Expanded(
-                child: _bottomItem('assets/chat.png', () {}),
-              ),
+              Expanded(child: _bottomItem('assets/chat.png', () {})),
 
               // PROFILE
               Expanded(
@@ -4019,10 +3983,7 @@ class MoreCategoriesPage extends StatelessWidget {
   // CATEGORY BUTTON
   // =====================================================
 
-  static Widget _categoryButton(
-    String text,
-    String imagePath,
-  ) {
+  static Widget _categoryButton(String text, String imagePath) {
     return Container(
       width: 79.5,
       height: 79.5,
@@ -4033,11 +3994,7 @@ class MoreCategoriesPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(
-            imagePath,
-            width: 32,
-            height: 32,
-          ),
+          Image.asset(imagePath, width: 32, height: 32),
 
           const SizedBox(height: 4),
 
@@ -4066,25 +4023,22 @@ class MoreCategoriesPage extends StatelessWidget {
   // BOTTOM NAV ITEM
   // =====================================================
 
-  static Widget _bottomItem(
-    String image,
-    VoidCallback onTap,
-  ) {
+  static Widget _bottomItem(String image, VoidCallback onTap) {
     return SizedBox(
       height: 96,
       child: Center(
         child: GestureDetector(
           onTap: onTap,
-          child: Image.asset(
-            image,
-            width: 32,
-            height: 32,
-          ),
+          child: Image.asset(image, width: 32, height: 32),
         ),
       ),
     );
   }
 }
+// =====================================================
+// MORE TASKS PAGE
+// =====================================================
+
 // =====================================================
 // MORE TASKS PAGE
 // =====================================================
@@ -4097,6 +4051,9 @@ class MoreTasksPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
 
+      // =================================================
+      // BODY - SCROLLABLE
+      // =================================================
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -4238,11 +4195,111 @@ class MoreTasksPage extends StatelessWidget {
                   ],
                 ),
 
-                const SizedBox(height: 24),
+                const SizedBox(height: 16),
 
                 // =================================================
-                // EMPTY CONTENT FOR NOW
+                // TASK CARDS
                 // =================================================
+
+                const TaskCard(
+                  image: 'assets/job1.png',
+                  title: 'კარადის აწყობა',
+                  location: 'ვაკე, თბილისი',
+                  time: 'დღეს, 15:00',
+                  price: '30₾',
+                  showBookmark: true,
+                ),
+
+                const SizedBox(height: 8),
+
+                const TaskCard(
+                  image: 'assets/job2.png',
+                  title: 'ყუთის გადატანა',
+                  location: 'დიდუბე, თბილისი',
+                  time: 'ხვალ, 11:00',
+                  price: '20₾',
+                  showBookmark: true,
+                ),
+
+                const SizedBox(height: 8),
+
+                const TaskCard(
+                  image: 'assets/job3.png',
+                  title: 'ძაღლის გასეირნება',
+                  location: 'საბურთალო, თბილისი',
+                  time: '2 მაისი, 18:00',
+                  price: '15₾',
+                  showBookmark: true,
+                ),
+
+                const SizedBox(height: 8),
+
+                const TaskCard(
+                  image: 'assets/job6.png',
+                  title: 'სახლის დასუფთავება',
+                  location: 'ვაკე, თბილისი',
+                  time: 'ხვალ, 11:00',
+                  price: '45₾',
+                  showBookmark: true,
+                ),
+
+                const SizedBox(height: 8),
+
+                const TaskCard(
+                  image: 'assets/job7.png',
+                  title: 'ღონისძიების დაგეგმვა',
+                  location: 'ოქროყანა, თბილისი',
+                  time: 'დღეს, 18:00',
+                  price: '100₾',
+                  showBookmark: true,
+                ),
+
+                const SizedBox(height: 8),
+
+                const TaskCard(
+                  image: 'assets/job8.png',
+                  title: 'ტექნიკური დახმარება',
+                  location: 'დიღომი, თბილისი',
+                  time: 'დღეს, 16:00',
+                  price: '50₾',
+                  showBookmark: true,
+                ),
+
+                const SizedBox(height: 8),
+
+                const TaskCard(
+                  image: 'assets/job9.png',
+                  title: 'ავეჯის გადატანა',
+                  location: 'სანზონა, თბილისი',
+                  time: 'ხვალ, 13:00',
+                  price: '80₾',
+                  showBookmark: true,
+                ),
+
+                const SizedBox(height: 8),
+
+                const TaskCard(
+                  image: 'assets/job10.png',
+                  title: 'ძაღლის გასეირნება',
+                  location: 'ავლაბარი, თბილისი',
+                  time: 'ხვალ, 20:00',
+                  price: '20₾',
+                  showBookmark: true,
+                ),
+
+                const SizedBox(height: 8),
+
+                const TaskCard(
+                  image: 'assets/job11.png',
+                  title: 'ინგლისურის შესწავლა',
+                  location: 'ოქროყანა, თბილისი',
+                  time: 'დღეს, 18:00',
+                  price: 'ფასი შეთანხმებით',
+                  showBookmark: true,
+                ),
+
+            
+                const SizedBox(height: 16),
               ],
             ),
           ),
@@ -4280,7 +4337,7 @@ class MoreTasksPage extends StatelessWidget {
 
               const SizedBox(width: 32),
 
-              // PLUS
+              // PLUS BUTTON
               SizedBox(
                 width: 68,
                 height: 68,
