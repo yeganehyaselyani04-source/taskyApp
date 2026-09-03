@@ -1668,7 +1668,14 @@ class HomePage extends StatelessWidget {
                     width: 68,
                     height: 68,
                     child: FloatingActionButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const NewTaskPage(),
+                          ),
+                        );
+                      },
                       backgroundColor: const Color(0xFF7659C2),
                       elevation: 0,
                       shape: const CircleBorder(),
@@ -2070,7 +2077,14 @@ class _TasksPageState extends State<TasksPage> {
                     width: 68,
                     height: 68,
                     child: FloatingActionButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const NewTaskPage(),
+                          ),
+                        );
+                      },
                       backgroundColor: const Color(0xFF7659C2),
                       elevation: 0,
                       shape: const CircleBorder(),
@@ -2579,8 +2593,14 @@ class MenuPage extends StatelessWidget {
               _menuButton('assets/security.png', 'კონფიდენციალურობის პოლიტიკა'),
 
               _menuButton('assets/policy.png', 'გამოყენების პირობები'),
+              const SizedBox(height: 16),
+              const Divider(
+                height: 1,
+                thickness: 1,
+                color: Color.fromARGB(255, 41, 41, 41),
+              ),
 
-              const SizedBox(height: 32),
+              const SizedBox(height: 16),
 
               _menuButton('assets/support.png', 'დახმარება'),
 
@@ -2589,30 +2609,41 @@ class MenuPage extends StatelessWidget {
               const SizedBox(height: 24),
 
               // LOG OUT
-              Container(
-                width: 342,
-                height: 56,
-                decoration: BoxDecoration(
-                  color: const Color(0xFFFFCCCC),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Icon(Icons.logout, color: Colors.red, size: 20),
-
-                    const SizedBox(width: 8),
-
-                    const Text(
-                      'გასვლა',
-                      style: TextStyle(
-                        fontFamily: 'Noto Sans Georgian',
-                        color: Colors.red,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                      ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const WelcomePage(),
                     ),
-                  ],
+                    (route) => false,
+                  );
+                },
+                child: Container(
+                  width: 342,
+                  height: 56,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFFFCCCC),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.logout, color: Colors.red, size: 20),
+
+                      const SizedBox(width: 8),
+
+                      const Text(
+                        'გასვლა',
+                        style: TextStyle(
+                          fontFamily: 'Noto Sans Georgian',
+                          color: Colors.red,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -2678,7 +2709,7 @@ class BookmarkedPage extends StatelessWidget {
               // =================================================
               SizedBox(
                 width: 342,
-                height: 40,
+                height: 55,
                 child: Row(
                   children: [
                     GestureDetector(
@@ -2687,8 +2718,8 @@ class BookmarkedPage extends StatelessWidget {
                       },
                       child: Image.asset(
                         'assets/back.png',
-                        width: 24,
-                        height: 24,
+                        width: 47,
+                        height: 47,
                       ),
                     ),
 
@@ -3179,7 +3210,14 @@ class ProfilePage extends StatelessWidget {
                     width: 68,
                     height: 68,
                     child: FloatingActionButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const NewTaskPage(),
+                          ),
+                        );
+                      },
                       backgroundColor: const Color(0xFF7659C2),
                       elevation: 0,
                       shape: const CircleBorder(),
@@ -3325,7 +3363,7 @@ class BalancePage extends StatelessWidget {
               // TOP BAR
               SizedBox(
                 width: 342,
-                height: 40,
+                height: 55,
                 child: Row(
                   children: [
                     GestureDetector(
@@ -3334,8 +3372,8 @@ class BalancePage extends StatelessWidget {
                       },
                       child: Image.asset(
                         'assets/back.png',
-                        width: 24,
-                        height: 24,
+                        width: 47,
+                        height: 47,
                       ),
                     ),
 
@@ -3346,7 +3384,7 @@ class BalancePage extends StatelessWidget {
                       style: TextStyle(
                         fontFamily: 'GLVenuri',
                         color: Color(0xFF573F95),
-                        fontSize: 24,
+                        fontSize: 28,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -3363,7 +3401,7 @@ class BalancePage extends StatelessWidget {
               // BALANCE CARD
               Container(
                 width: 342,
-                height: 92,
+                height: 128,
                 decoration: BoxDecoration(
                   color: const Color(0xFF7659C2),
                   borderRadius: BorderRadius.circular(8),
@@ -3385,7 +3423,7 @@ class BalancePage extends StatelessWidget {
                       ),
                     ),
 
-                    const SizedBox(height: 4),
+                    const SizedBox(height: 8),
 
                     const Text(
                       '125.50 ₾',
@@ -3408,12 +3446,45 @@ class BalancePage extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                       ),
                     ),
+
+                    const SizedBox(height: 8),
+
+                    // DARK PURPLE SECURITY BAR
+                    Container(
+                      width: 310,
+                      height: 20,
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF573F95),
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.verified_user_outlined,
+                            color: Colors.white,
+                            size: 14,
+                          ),
+
+                          const SizedBox(width: 8),
+
+                          const Text(
+                            'თქვენი თანხა დაცულია Tasky-ის სისტემაში',
+                            style: TextStyle(
+                              fontFamily: 'Noto Sans Georgian',
+                              color: Colors.white,
+                              fontSize: 8,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
 
               const SizedBox(height: 12),
-
               // ADD MONEY + WITHDRAW
               Row(
                 children: [
@@ -3421,7 +3492,11 @@ class BalancePage extends StatelessWidget {
                     child: Container(
                       height: 48,
                       decoration: BoxDecoration(
-                        color: const Color(0xFFF1ECFA),
+                        color: Colors.white,
+                        border: Border.all(
+                          color: const Color(0xFF7659C2),
+                          width: 1,
+                        ),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Row(
@@ -3443,14 +3518,29 @@ class BalancePage extends StatelessWidget {
 
                           const SizedBox(width: 8),
 
-                          const Text(
-                            'თანხის ჩარიცხვა',
-                            style: TextStyle(
-                              fontFamily: 'Noto Sans Georgian',
-                              color: Color(0xFF7659C2),
-                              fontSize: 11,
-                              fontWeight: FontWeight.w400,
-                            ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                'თანხის ჩარიცხვა',
+                                style: TextStyle(
+                                  fontFamily: 'Noto Sans Georgian',
+                                  color: Color(0xFF7659C2),
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              const Text(
+                                'ბალანსის შევსება',
+                                style: TextStyle(
+                                  fontFamily: 'Noto Sans Georgian',
+                                  color: Color(0xFF7659C2),
+                                  fontSize: 8,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -3463,7 +3553,11 @@ class BalancePage extends StatelessWidget {
                     child: Container(
                       height: 48,
                       decoration: BoxDecoration(
-                        color: const Color(0xFFF1ECFA),
+                        color: Colors.white,
+                        border: Border.all(
+                          color: const Color(0xFF7659C2),
+                          width: 1,
+                        ),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Row(
@@ -3485,14 +3579,29 @@ class BalancePage extends StatelessWidget {
 
                           const SizedBox(width: 8),
 
-                          const Text(
-                            'ისესხე',
-                            style: TextStyle(
-                              fontFamily: 'Noto Sans Georgian',
-                              color: Color(0xFF7659C2),
-                              fontSize: 11,
-                              fontWeight: FontWeight.w400,
-                            ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                'ისესხე',
+                                style: TextStyle(
+                                  fontFamily: 'Noto Sans Georgian',
+                                  color: Color(0xFF7659C2),
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              const Text(
+                                'ტრანზაქციების ნახვა',
+                                style: TextStyle(
+                                  fontFamily: 'Noto Sans Georgian',
+                                  color: Color(0xFF7659C2),
+                                  fontSize: 8,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -3501,8 +3610,7 @@ class BalancePage extends StatelessWidget {
                 ],
               ),
 
-              const SizedBox(height: 16),
-
+              const SizedBox(height: 24),
               // TRANSACTIONS TITLE
               Row(
                 children: [
@@ -3511,7 +3619,7 @@ class BalancePage extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Noto Sans Georgian',
                       color: Color(0xFF7659C2),
-                      fontSize: 14,
+                      fontSize: 16,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -3523,7 +3631,7 @@ class BalancePage extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'Noto Sans Georgian',
                       color: Color(0xFF7659C2),
-                      fontSize: 10,
+                      fontSize: 12,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -3538,54 +3646,356 @@ class BalancePage extends StatelessWidget {
 
               const SizedBox(height: 8),
 
-              // TRANSACTION 1
-              _transactionItem(
-                Icons.arrow_downward,
-                'თანხის ჩარიცხვა',
-                '26 აგვისტო, 2026, 14:37',
-                '+100.00 ₾',
-                true,
+              // TRANSACTIONS CARD
+              Container(
+                width: 342,
+                height: 261,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(color: const Color(0xFF7659C2), width: 1),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Column(
+                  children: [
+                    // TRANSACTION 1
+                    SizedBox(
+                      height: 64,
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 40,
+                            height: 40,
+                            decoration: const BoxDecoration(
+                              color: Color(0xFFD8F5D2),
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Icon(
+                              Icons.arrow_downward,
+                              color: Colors.green,
+                              size: 20,
+                            ),
+                          ),
+
+                          const SizedBox(width: 16),
+
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Text(
+                                  'თანხის ჩარიცხვა',
+                                  style: TextStyle(
+                                    fontFamily: 'Noto Sans Georgian',
+                                    color: Color(0xFF573F95),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                SizedBox(height: 2),
+                                Text(
+                                  '26 აგვ. 2026, 14:37',
+                                  style: TextStyle(
+                                    fontFamily: 'Noto Sans Georgian',
+                                    color: Color(0xFFA99ADB),
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: const [
+                              Text(
+                                '+100.00 ₾',
+                                style: TextStyle(
+                                  fontFamily: 'Noto Sans Georgian',
+                                  color: Colors.green,
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 2),
+                              Text(
+                                'ბარათით',
+                                style: TextStyle(
+                                  fontFamily: 'Noto Sans Georgian',
+                                  color: Color(0xFFA99ADB),
+                                  fontSize: 9,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    const Divider(
+                      height: 1,
+                      thickness: 1,
+                      color: Color(0xFFDCD4F2),
+                    ),
+
+                    // TRANSACTION 2
+                    SizedBox(
+                      height: 64,
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 40,
+                            height: 40,
+                            decoration: const BoxDecoration(
+                              color: Color(0xFFE8E0F8),
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Icon(
+                              Icons.lock_outline,
+                              color: Color(0xFF7659C2),
+                              size: 20,
+                            ),
+                          ),
+
+                          const SizedBox(width: 16),
+
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Text(
+                                  'დაბლოკილი თანხა',
+                                  style: TextStyle(
+                                    fontFamily: 'Noto Sans Georgian',
+                                    color: Color(0xFF573F95),
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                SizedBox(height: 4),
+                                Text(
+                                  'Task ID: #1287 ავეჯის აწყობა',
+                                  style: TextStyle(
+                                    fontFamily: 'Noto Sans Georgian',
+                                    color: Color(0xFFA99ADB),
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: const [
+                              Text(
+                                '-45 ₾',
+                                style: TextStyle(
+                                  fontFamily: 'Noto Sans Georgian',
+                                  color: Colors.black87,
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 4),
+                              Text(
+                                'დაბლოკილია',
+                                style: TextStyle(
+                                  fontFamily: 'Noto Sans Georgian',
+                                  color: Color(0xFFA99ADB),
+                                  fontSize: 9,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    const Divider(
+                      height: 1,
+                      thickness: 1,
+                      color: Color(0xFFDCD4F2),
+                    ),
+
+                    // TRANSACTION 3
+                    SizedBox(
+                      height: 64,
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 40,
+                            height: 40,
+                            decoration: const BoxDecoration(
+                              color: Color(0xFFD8F5D2),
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Icon(
+                              Icons.arrow_downward,
+                              color: Colors.green,
+                              size: 20,
+                            ),
+                          ),
+
+                          const SizedBox(width: 16),
+
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Text(
+                                  'გამომუშავებული თანხა',
+                                  style: TextStyle(
+                                    fontFamily: 'Noto Sans Georgian',
+                                    color: Color(0xFF573F95),
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                SizedBox(height: 4),
+                                Text(
+                                  'Task ID: #1210 მიტანის სერვისი',
+                                  style: TextStyle(
+                                    fontFamily: 'Noto Sans Georgian',
+                                    color: Color(0xFFA99ADB),
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: const [
+                              Text(
+                                '+45 ₾',
+                                style: TextStyle(
+                                  fontFamily: 'Noto Sans Georgian',
+                                  color: Colors.green,
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 4),
+                              Text(
+                                'ჩარიცხვა',
+                                style: TextStyle(
+                                  fontFamily: 'Noto Sans Georgian',
+                                  color: Color(0xFFA99ADB),
+                                  fontSize: 9,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    const Divider(
+                      height: 1,
+                      thickness: 1,
+                      color: Color(0xFFDCD4F2),
+                    ),
+
+                    // TRANSACTION 4
+                    SizedBox(
+                      height: 64,
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 40,
+                            height: 40,
+                            decoration: const BoxDecoration(
+                              color: Color(0xFFFFD6D6),
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Icon(
+                              Icons.arrow_upward,
+                              color: Colors.red,
+                              size: 20,
+                            ),
+                          ),
+
+                          const SizedBox(width: 16),
+
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Text(
+                                  'თანხის გატანა',
+                                  style: TextStyle(
+                                    fontFamily: 'Noto Sans Georgian',
+                                    color: Color(0xFF573F95),
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                SizedBox(height: 4),
+                                Text(
+                                  '16 აგვ. 2026, 18:15',
+                                  style: TextStyle(
+                                    fontFamily: 'Noto Sans Georgian',
+                                    color: Color(0xFFA99ADB),
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: const [
+                              Text(
+                                '-80 ₾',
+                                style: TextStyle(
+                                  fontFamily: 'Noto Sans Georgian',
+                                  color: Colors.black87,
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(height: 4),
+                              Text(
+                                'ბარათით',
+                                style: TextStyle(
+                                  fontFamily: 'Noto Sans Georgian',
+                                  color: Color(0xFFA99ADB),
+                                  fontSize: 9,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
 
-              const SizedBox(height: 8),
-
-              // TRANSACTION 2
-              _transactionItem(
-                Icons.lock_outline,
-                'დაკავებული თანხა',
-                'Task ID: #1287',
-                '-45 ₾',
-                false,
-              ),
-
-              const SizedBox(height: 8),
-
-              // TRANSACTION 3
-              _transactionItem(
-                Icons.arrow_downward,
-                'გამომუშავებული თანხა',
-                'Task ID: #1210',
-                '+45 ₾',
-                true,
-              ),
-
-              const SizedBox(height: 8),
-
-              // TRANSACTION 4
-              _transactionItem(
-                Icons.arrow_upward,
-                'თანხის გატანა',
-                '16 აგვისტო, 2026, 18:15',
-                '-80 ₾',
-                false,
-              ),
-
-              const SizedBox(height: 12),
-
+              const SizedBox(height: 16),
               // SECURITY INFO
               Container(
                 width: 342,
-                height: 58,
+                height: 82,
                 decoration: BoxDecoration(
                   color: const Color(0xFFE8E0F8),
                   borderRadius: BorderRadius.circular(8),
@@ -3602,15 +4012,28 @@ class BalancePage extends StatelessWidget {
 
                     const SizedBox(width: 8),
 
-                    Expanded(
-                      child: Text(
-                        'უსაფრთხოება დაცულია. თქვენი ფინანსური ინფორმაცია დაცულია.',
-                        style: const TextStyle(
-                          fontFamily: 'Noto Sans Georgian',
-                          color: Color(0xFF7659C2),
-                          fontSize: 8,
-                          fontWeight: FontWeight.w400,
-                        ),
+                    RichText(
+                      text: const TextSpan(
+                        children: [
+                          TextSpan(
+                            text: 'უსაფრთხო გადახდა. ',
+                            style: TextStyle(
+                              fontFamily: 'NotoSansGeorgian',
+                              color: Color(0xFF7659C2),
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          TextSpan(
+                            text:
+                                '\n თქვენი გადახდა დაცულია. თანხა ინახება უსაფრთხოდ\n და  გადაირიცხება დავალების შესრულების შემდეგ.',
+                            style: TextStyle(
+                              fontFamily: 'NotoSansGeorgian',
+                              fontSize: 10,
+                              color: Color(0xFF7659C2),
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -3729,35 +4152,32 @@ class MoreCategoriesPage extends StatelessWidget {
               // =================================================
               SizedBox(
                 width: 342,
-                height: 40,
-                child: Row(
+                height: 55,
+                child: Stack(
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
+                    Positioned(
+                      left: 0,
+                      top: 8,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Image.asset(
+                          'assets/back.png',
+                          width: 47,
+                          height: 47,
+                        ),
+                      ),
+                    ),
+
+                    Center(
                       child: Image.asset(
-                        'assets/back.png',
-                        width: 24,
-                        height: 24,
+                        'assets/tasky.png',
+                        width: 100,
+                        height: 40,
+                        fit: BoxFit.contain,
                       ),
                     ),
-
-                    const Spacer(),
-
-                    const Text(
-                      'კატეგორიები',
-                      style: TextStyle(
-                        fontFamily: 'GLVenuri',
-                        color: Color(0xFF573F95),
-                        fontSize: 24,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-
-                    const Spacer(),
-
-                    const SizedBox(width: 24, height: 24),
                   ],
                 ),
               ),
@@ -3939,7 +4359,14 @@ class MoreCategoriesPage extends StatelessWidget {
                     width: 68,
                     height: 68,
                     child: FloatingActionButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const NewTaskPage(),
+                          ),
+                        );
+                      },
                       backgroundColor: const Color(0xFF7659C2),
                       elevation: 0,
                       shape: const CircleBorder(),
@@ -4066,7 +4493,6 @@ class MoreTasksPage extends StatelessWidget {
                 // =================================================
                 // TOP BAR
                 // =================================================
-
                 SizedBox(
                   width: 342,
                   height: 40,
@@ -4085,22 +4511,15 @@ class MoreTasksPage extends StatelessWidget {
 
                       const Spacer(),
 
-                      const Text(
-                        'ახალი დავალებები',
-                        style: TextStyle(
-                          fontFamily: 'GLVenuri',
-                          color: Color(0xFF573F95),
-                          fontSize: 24,
-                          fontWeight: FontWeight.w500,
-                        ),
+                      Image.asset(
+                        'assets/tasky.png',
+                        width: 88,
+                        height: 42,
+                        fit: BoxFit.contain,
                       ),
-
                       const Spacer(),
 
-                      const SizedBox(
-                        width: 24,
-                        height: 24,
-                      ),
+                      const SizedBox(width: 24, height: 24),
                     ],
                   ),
                 ),
@@ -4110,7 +4529,6 @@ class MoreTasksPage extends StatelessWidget {
                 // =================================================
                 // SEARCH BAR
                 // =================================================
-
                 SizedBox(
                   width: 342,
                   height: 48,
@@ -4164,14 +4582,9 @@ class MoreTasksPage extends StatelessWidget {
                 // =================================================
                 // LOCATION
                 // =================================================
-
                 Row(
                   children: [
-                    Image.asset(
-                      'assets/location.png',
-                      width: 24,
-                      height: 24,
-                    ),
+                    Image.asset('assets/location.png', width: 24, height: 24),
 
                     const SizedBox(width: 3),
 
@@ -4187,11 +4600,7 @@ class MoreTasksPage extends StatelessWidget {
 
                     const SizedBox(width: 8),
 
-                    Image.asset(
-                      'assets/arrowdown.png',
-                      width: 16,
-                      height: 16,
-                    ),
+                    Image.asset('assets/arrowdown.png', width: 16, height: 16),
                   ],
                 ),
 
@@ -4200,7 +4609,6 @@ class MoreTasksPage extends StatelessWidget {
                 // =================================================
                 // TASK CARDS
                 // =================================================
-
                 const TaskCard(
                   image: 'assets/job1.png',
                   title: 'კარადის აწყობა',
@@ -4298,7 +4706,6 @@ class MoreTasksPage extends StatelessWidget {
                   showBookmark: true,
                 ),
 
-            
                 const SizedBox(height: 16),
               ],
             ),
@@ -4309,7 +4716,6 @@ class MoreTasksPage extends StatelessWidget {
       // =================================================
       // BOTTOM NAVIGATION
       // =================================================
-
       bottomNavigationBar: SizedBox(
         height: 96,
         child: BottomAppBar(
@@ -4323,17 +4729,13 @@ class MoreTasksPage extends StatelessWidget {
                 child: _bottomItem('assets/home.png', () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => const HomePage(),
-                    ),
+                    MaterialPageRoute(builder: (context) => const HomePage()),
                   );
                 }),
               ),
 
               // TASKS
-              Expanded(
-                child: _bottomItem('assets/list.png', () {}),
-              ),
+              Expanded(child: _bottomItem('assets/list.png', () {})),
 
               const SizedBox(width: 32),
 
@@ -4346,7 +4748,14 @@ class MoreTasksPage extends StatelessWidget {
                     width: 68,
                     height: 68,
                     child: FloatingActionButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const NewTaskPage(),
+                          ),
+                        );
+                      },
                       backgroundColor: const Color(0xFF7659C2),
                       elevation: 0,
                       shape: const CircleBorder(),
@@ -4366,9 +4775,7 @@ class MoreTasksPage extends StatelessWidget {
               const SizedBox(width: 32),
 
               // CHAT
-              Expanded(
-                child: _bottomItem('assets/chat.png', () {}),
-              ),
+              Expanded(child: _bottomItem('assets/chat.png', () {})),
 
               // PROFILE
               Expanded(
@@ -4392,21 +4799,396 @@ class MoreTasksPage extends StatelessWidget {
   // BOTTOM NAV ITEM
   // =====================================================
 
-  static Widget _bottomItem(
-    String image,
-    VoidCallback onTap,
-  ) {
+  static Widget _bottomItem(String image, VoidCallback onTap) {
     return SizedBox(
       height: 96,
       child: Center(
         child: GestureDetector(
           onTap: onTap,
-          child: Image.asset(
-            image,
-            width: 32,
-            height: 32,
+          child: Image.asset(image, width: 32, height: 32),
+        ),
+      ),
+    );
+  }
+}
+
+class NewTaskPage extends StatelessWidget {
+  const NewTaskPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 16),
+
+                // HEADER
+                SizedBox(
+                  width: 342,
+                  height: 40,
+                  child: Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Image.asset(
+                          'assets/back.png',
+                          width: 24,
+                          height: 24,
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      const Text(
+                        'ახალი განცხადება',
+                        style: TextStyle(
+                          fontFamily: 'GLVenuri',
+                          color: Color(0xFF573F95),
+                          fontSize: 24,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                const SizedBox(height: 24),
+
+                // WHAT DO YOU NEED?
+                const Text(
+                  'რა გჭირდება?',
+                  style: TextStyle(
+                    fontFamily: 'NotoSansGeorgian',
+                    color: Color(0xFF573F95),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+
+                const SizedBox(height: 8),
+
+                Container(
+                  width: 342,
+                  height: 48,
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFE8E0F8),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const TextField(
+                    maxLines: 1,
+                    decoration: InputDecoration(
+                      hintText: 'განცხადების სათაური',
+                      border: InputBorder.none,
+                      hintStyle: TextStyle(
+                        fontFamily: 'NotoSansGeorgian',
+                        color: Color(0xFF7659C2),
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 8),
+
+                // DESCRIPTION
+                const Text(
+                  'აღწერა',
+                  style: TextStyle(
+                    fontFamily: 'NotoSansGeorgian',
+                    color: Color(0xFF573F95),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+
+                const SizedBox(height: 8),
+
+                Container(
+                  width: 342,
+                  height: 84,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 8,
+                  ),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFE8E0F8),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const TextField(
+                    maxLines: 4,
+                    decoration: InputDecoration(
+                      hintText:
+                          'აღწერეთ დეტალურად რა გჭირდებათ\nდა რა მოთხოვნა გაქვთ',
+                      border: InputBorder.none,
+                      hintStyle: TextStyle(
+                        fontFamily: 'NotoSansGeorgian',
+                        color: Color(0xFF7659C2),
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 8),
+
+                // CATEGORY
+                const Text(
+                  'აირჩიეთ კატეგორია',
+                  style: TextStyle(
+                    fontFamily: 'NotoSansGeorgian',
+                    color: Color(0xFF573F95),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+
+                const SizedBox(height: 8),
+
+                // CATEGORY GRID
+                Row(
+                  children: [
+                    _categoryButton('მიწოდება', 'assets/miwodeba.png'),
+                    const SizedBox(width: 6),
+                    _categoryButton('გადაზიდვა', 'assets/gadazidva.png'),
+                    const SizedBox(width: 6),
+                    _categoryButton(
+                      'სასწავლო\nდახმარება',
+                      'assets/educational.png',
+                    ),
+                    const SizedBox(width: 6),
+                    _categoryButton('ხელოსანი', 'assets/xelosani.png'),
+                  ],
+                ),
+
+                const SizedBox(height: 8),
+
+                Row(
+                  children: [
+                    _categoryButton('ცხოველის\nმოვლა', 'assets/pet.png'),
+                    const SizedBox(width: 6),
+                    _categoryButton('დასუფთავება', 'assets/cleaning.png'),
+                    const SizedBox(width: 6),
+                    _categoryButton('რემონტი', 'assets/repair.png'),
+                    const SizedBox(width: 6),
+                    _categoryButton(
+                      'ტექნიკური\nდახმარება',
+                      'assets/technical.png',
+                    ),
+                  ],
+                ),
+
+                const SizedBox(height: 8),
+
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const MoreCategoriesPage(),
+                      ),
+                    );
+                  },
+                  child: const Center(
+                    child: Text(
+                      'მეტის ნახვა',
+                      style: TextStyle(
+                        fontFamily: 'NotoSansGeorgian',
+                        color: Color(0xFF7659C2),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 8),
+
+                // WHERE AND WHEN?
+                const Text(
+                  'სად და როდის?',
+                  style: TextStyle(
+                    fontFamily: 'NotoSansGeorgian',
+                    color: Color(0xFF573F95),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+
+                const SizedBox(height: 8),
+
+                // LOCATION
+                _infoField(icon: Icons.location_on_outlined, text: 'მისამართი'),
+
+                const SizedBox(height: 8),
+
+                // DATE
+                _infoField(
+                  icon: Icons.calendar_month_outlined,
+                  text: 'სასურველი თარიღი',
+                ),
+
+                const SizedBox(height: 8),
+
+                // TIME
+                _infoField(icon: Icons.access_time, text: 'მომენტი დრო'),
+
+                const SizedBox(height: 16),
+
+                // ADDITIONAL INFORMATION
+                const Text(
+                  'საფასური',
+                  style: TextStyle(
+                    fontFamily: '',
+                    color: Color(0xFF573F95),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+
+                const SizedBox(height: 8),
+
+                Container(
+                  width: 342,
+                  height: 48,
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFE8E0F8),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Row(
+                    children: [
+                      Icon(
+                        Icons.price_check_outlined,
+                        size: 20,
+                        color: Color(0xFF7659C2),
+                      ),
+                      SizedBox(width: 12),
+                      Expanded(
+                        child: Text(
+                          'დავალების ღირებულება',
+                          style: TextStyle(
+                            fontFamily: 'NotoSansGeorgian',
+                            color: Color(0xFF7659C2),
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                      Text(
+                        '₾',
+                        style: TextStyle(
+                          fontFamily: 'NotoSansGeorgian',
+                          color: Color(0xFF7659C2),
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                const SizedBox(height: 16),
+
+                // PUBLISH BUTTON
+                SizedBox(
+                  width: 342,
+                  height: 48,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF7659C2),
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.upload_outlined,
+                          size: 20,
+                          color: Colors.white,
+                        ),
+                        SizedBox(width: 8),
+                        Text(
+                          'განცხადების გამოქვეყნება',
+                          style: TextStyle(
+                            fontFamily: 'NotoSansGeorgian',
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 24),
+              ],
+            ),
           ),
         ),
+      ),
+    );
+  }
+
+  static Widget _categoryButton(String text, String image) {
+    return Container(
+      width: 81,
+      height: 72,
+      decoration: BoxDecoration(
+        color: const Color(0xFFE8E0F8),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(image, width: 24, height: 24),
+          const SizedBox(height: 4),
+          Text(
+            text,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontFamily: 'NotoSansGeorgian',
+              color: Color(0xFF7659C2),
+              fontSize: 8,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  static Widget _infoField({required IconData icon, required String text}) {
+    return Container(
+      width: 342,
+      height: 40,
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      decoration: BoxDecoration(
+        color: const Color(0xFFE8E0F8),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Row(
+        children: [
+          Icon(icon, size: 20, color: const Color(0xFF7659C2)),
+          const SizedBox(width: 8),
+          Text(
+            text,
+            style: const TextStyle(
+              fontFamily: 'NotoSansGeorgian',
+              color: Color(0xFF7659C2),
+              fontSize: 12,
+            ),
+          ),
+        ],
       ),
     );
   }
